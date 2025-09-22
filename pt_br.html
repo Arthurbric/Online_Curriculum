@@ -22,28 +22,36 @@
             --text-color: #c9d1d9;
             --card-bg: #1e242c;
         }
+
         body {
             position: relative;
             font-family: 'Poppins', sans-serif;
             background-color: var(--secondary-color);
             color: var(--text-color);
         }
+
         .navbar {
             background-color: rgba(13, 17, 23, 0.207);
             backdrop-filter: blur(20px);
             transition: background-color 0.3s ease;
         }
+
         .navbar .nav-link {
             color: var(--text-color);
             font-weight: 500;
             transition: color 0.3s;
         }
+
         .navbar .nav-link.active,
         .navbar .nav-link:hover,
         .navbar .navbar-brand:hover {
             color: var(--accent-color) !important;
         }
-        .navbar-brand { font-weight: 700; }
+
+        .navbar-brand {
+            font-weight: 700;
+        }
+
         .lang-switch a {
             color: var(--text-color);
             text-decoration: none;
@@ -53,25 +61,33 @@
             border-radius: 5px;
             transition: all 0.3s;
         }
+
         .lang-switch a:hover {
             background-color: var(--accent-color);
             border-color: var(--accent-color);
             color: var(--primary-color);
         }
+
         .btn-primary {
             background-color: var(--accent-color);
             border-color: var(--accent-color);
         }
+
         .btn-primary:hover {
             background-color: #79bbff;
             border-color: #79bbff;
         }
-        .btn { margin: 5px; }
+
+        .btn {
+            margin: 5px;
+        }
+
         .back_arthur {
             background-color: var(--secondary-color);
             overflow: hidden;
             position: relative;
         }
+
         .back_arthur::before {
             content: '';
             position: absolute;
@@ -86,6 +102,7 @@
             background-repeat: repeat;
             animation: drift 5s linear infinite;
         }
+
         .back_arthur::after {
             content: '';
             position: absolute;
@@ -99,10 +116,17 @@
             background-repeat: repeat;
             animation: drift 5s linear infinite;
         }
+
         @keyframes drift {
-            from { transform: translateY(0px); }
-            to { transform: translateY(-400px); }
+            from {
+                transform: translateY(0px);
+            }
+
+            to {
+                transform: translateY(-400px);
+            }
         }
+
         .back_arthur2 {
             background-color: var(--secondary-color);
             background-image:
@@ -113,24 +137,34 @@
             background-size: 100% 100%;
             animation: float-particles 60s linear infinite;
         }
+
         @keyframes float-particles {
-            from { background-position: 0 0, 0 0, 0 0, 0 0; }
-            to { background-position: 0 -1000px, 0 -1200px, 0 -1100px, 0 -1150px; }
+            from {
+                background-position: 0 0, 0 0, 0 0, 0 0;
+            }
+
+            to {
+                background-position: 0 -1000px, 0 -1200px, 0 -1100px, 0 -1150px;
+            }
         }
+
         .hero {
             padding: 120px 0;
             background: linear-gradient(135deg, var(--primary-color) 0%, #2a3340 100%);
             border-bottom: 1px solid var(--accent-color);
         }
+
         .hero h1 {
             font-size: 3.8rem;
             font-weight: 700;
             color: #ffffff;
         }
+
         .hero .lead {
             font-size: 1.5rem;
             color: var(--accent-color);
         }
+
         .profile-photo {
             width: 300px;
             height: 300px;
@@ -139,7 +173,11 @@
             border: 5px solid var(--accent-color);
             box-shadow: 0 0 25px rgba(88, 166, 255, 0.5);
         }
-        .section { padding: 80px 0; }
+
+        .section {
+            padding: 80px 0;
+        }
+
         .section-title {
             text-align: center;
             margin-bottom: 60px;
@@ -147,6 +185,7 @@
             font-weight: 700;
             color: #ffffff;
         }
+
         .section-title::after {
             content: '';
             display: block;
@@ -156,6 +195,7 @@
             margin: 10px auto 0;
             border-radius: 2px;
         }
+
         .project-titel::after {
             content: '';
             display: block;
@@ -165,6 +205,7 @@
             margin: 10px 0 0;
             border-radius: 2px;
         }
+
         .skill-card {
             background-color: var(--card-bg);
             padding: 30px;
@@ -172,16 +213,22 @@
             border: 1px solid #30363d;
             transition: transform 0.3s, box-shadow 0.3s;
         }
+
         .skill-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
         }
+
         .skill-icon {
             font-size: 2.5rem;
             color: var(--accent-color);
             margin-bottom: 15px;
         }
-        .skill-h4 { margin-bottom: 25px; }
+
+        .skill-h4 {
+            margin-bottom: 25px;
+        }
+
         .skill-badge {
             display: inline-block;
             background-color: #30363d;
@@ -191,11 +238,13 @@
             border-radius: 5px;
             font-weight: 500;
         }
+
         .timeline {
             position: relative;
             max-width: 1200px;
             margin: 0 auto;
         }
+
         .timeline::after {
             content: '';
             position: absolute;
@@ -207,14 +256,22 @@
             margin-left: -4.5px;
             border-radius: 3px;
         }
+
         .timeline-container {
             padding: 10px 40px;
             position: relative;
             background-color: inherit;
             width: 50%;
         }
-        .timeline-container.left { left: 0; }
-        .timeline-container.right { left: 50%; }
+
+        .timeline-container.left {
+            left: 0;
+        }
+
+        .timeline-container.right {
+            left: 50%;
+        }
+
         .timeline-container::after {
             content: '';
             position: absolute;
@@ -227,7 +284,11 @@
             border-radius: 50%;
             z-index: 1;
         }
-        .timeline-container.right::after { left: -14px; }
+
+        .timeline-container.right::after {
+            left: -14px;
+        }
+
         .timeline-content {
             padding: 20px 30px;
             background-color: var(--card-bg);
@@ -235,83 +296,135 @@
             border-radius: 6px;
             border: 1px solid #30363d;
         }
+
         .card {
             background-color: var(--card-bg);
             border: 1px solid #30363d;
             border-radius: 10px;
             transition: transform 0.3s, box-shadow 0.3s;
         }
+
         .card:hover {
             transform: translateY(-10px);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
         }
-        .card-title { color: #ffffff; }
+
+        .card-title {
+            color: #ffffff;
+        }
+
         .progress {
             height: 25px;
             background-color: #30363d;
         }
+
         .progress-bar {
             background-color: var(--accent-color);
             font-weight: bold;
         }
+
+        /* email */
+        .email{
+            color: var(--accent-color);
+        }
+        .email:hover{
+            color: #ffffff;
+            text-decoration-line: none;
+        }
+
         footer {
             background: linear-gradient(135deg, #2a3340 0%, var(--primary-color) 100%);
             padding: 60px 0;
             text-align: center;
             border-top: 1px solid var(--accent-color);
         }
+
         footer a {
             color: var(--text-color);
             font-size: 2rem;
             margin: 0 15px;
             transition: color 0.3s;
         }
-        footer a:hover { color: var(--accent-color); }
+
+        footer a:hover {
+            color: var(--accent-color);
+        }
+
         @media screen and (max-width: 768px) {
-            .hero h1 { font-size: 2.8rem; }
-            .timeline::after { left: 31px; }
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+
+            .timeline::after {
+                left: 31px;
+            }
+
             .timeline-container {
                 width: 100%;
                 padding-left: 70px;
                 padding-right: 25px;
             }
+
             .timeline-container.left,
-            .timeline-container.right { left: 0%; }
+            .timeline-container.right {
+                left: 0%;
+            }
+
             .timeline-container.left::after,
-            .timeline-container.right::after { left: 15px; }
+            .timeline-container.right::after {
+                left: 15px;
+            }
         }
+
         .card-link-wrapper {
             display: block;
             text-decoration: none;
             color: inherit;
             height: 100%;
         }
-        .card-link-wrapper:hover { color: inherit; }
+
+        .card-link-wrapper:hover {
+            color: inherit;
+        }
+
         .card-icon {
             color: var(--accent-color);
             transition: transform 0.3s ease;
         }
-        .card:hover .card-icon { transform: scale(1.1); }
+
+        .card:hover .card-icon {
+            transform: scale(1.1);
+        }
+
         .card-coming-soon {
             border: 2px dashed #444;
             background-color: var(--primary-color);
             opacity: 0.6;
             transition: all 0.4s ease;
         }
+
         .card-coming-soon:hover {
             opacity: 1;
             border-color: var(--accent-color);
             transform: translateY(-5px);
         }
+
         .wip-icon i {
             font-size: 3rem;
             color: var(--accent-color);
             animation: spin 5s linear infinite;
         }
+
         @keyframes spin {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
         }
+
     </style>
 </head>
 
@@ -346,16 +459,20 @@
                     <p class="lead">Graduando em Ciência da Computação</p>
                     <h1 data-aos="fade-right">Arthur Arash Briceno Heidari</h1>
                     <p data-aos="fade-right" data-aos-delay="200" class="my-4">
-                        Profissional focado em soluções com uma formação diversificada em tecnologia, dados e atendimento ao cliente. Atualmente estagiando como Arquiteto de Soluções na SUSE, com capacidade comprovada de colaborar com equipes multifuncionais, projetar soluções de software eficazes e aprender rapidamente.
+                        Profissional focado em soluções com uma formação diversificada em tecnologia, dados e
+                        atendimento ao cliente. Atualmente estagiando como Arquiteto de Soluções na SUSE, com capacidade
+                        comprovada de colaborar com equipes multifuncionais, projetar soluções de software eficazes e
+                        aprender rapidamente.
                     </p>
                     <p data-aos="fade-right" data-aos-delay="200" class="my-4">
-                        Estou ansioso para aplicar uma base técnica sólida e habilidades transferíveis em uma nova função, impulsionado por uma paixão pelo aprendizado contínuo.
+                        Estou ansioso para aplicar uma base técnica sólida e habilidades transferíveis em uma nova
+                        função, impulsionado por uma paixão pelo aprendizado contínuo.
                     </p>
 
                     <div data-aos="fade-up" data-aos-delay="400">
                         <a href="#projects" class="btn btn-primary btn-lg">Ver Meus Projetos</a>
-                        <a href="Resume/Curriculo - Arthur Arash Briceno Heidari.pdf" class="btn btn-outline-light btn-lg"
-                            download>
+                        <a href="Resume/Curriculo - Arthur Arash Briceno Heidari.pdf"
+                            class="btn btn-outline-light btn-lg" download>
                             <i class="bi bi-download me-2"></i>
                             Baixar Currículo
                         </a>
@@ -380,9 +497,11 @@
                             <p class="card-text "><i class="bi bi-calendar3"></i> Jan 2024 - Presente</p>
                             <p><strong>SUSE Linux</strong></p>
                             <ul>
-                                <li>Colaboro com equipes multifuncionais para projetar soluções de software eficazes. [cite: 13, 94]</li>
-                                <li>Contribuo para a criação e documentação de arquiteturas de soluções. [cite: 13, 95]</li>
-                                <li>Participo na avaliação de tecnologias e no desenvolvimento de provas de conceito (PoCs). [cite: 14, 97]</li>
+                                <li>Colaboro com equipes multifuncionais para projetar soluções de software eficazes.
+                                </li>
+                                <li>Contribuo para a criação e documentação de arquiteturas de soluções. </li>
+                                <li>Participo na avaliação de tecnologias e no desenvolvimento de provas de conceito
+                                    (PoCs). </li>
                             </ul>
                         </div>
                     </div>
@@ -391,7 +510,8 @@
                             <h5>Engenheiro de Dados</h5>
                             <p class="card-text"><i class="bi bi-calendar3"></i> Jul 2023 - Jan 2024</p>
                             <p><strong>PGFN</strong></p>
-                            <p>Especializado no uso de tecnologias de Big Data e Data Lake, utilizando Python, Selenium e SQL para extração e manipulação de dados através de Web Scraping. [cite: 16, 17, 18, 101]</p>
+                            <p>Especializado no uso de tecnologias de Big Data e Data Lake, utilizando Python, Selenium
+                                e SQL para extração e manipulação de dados através de Web Scraping. </p>
                         </div>
                     </div>
                     <div class="timeline-container right" data-aos="fade-left">
@@ -400,7 +520,9 @@
                             <p class="card-text"><i class="bi bi-calendar3"></i> Jan 2022 - Presente</p>
                             <p><strong>Centro Universitário de Brasília (CEUB)</strong> </p>
                             <p>
-                                Coordenei cursos intensivos de Linux, Python e C, além de workshops de Git. [cite: 20] Ofereci tutoria individual e fui responsável pela criação e manutenção do site da monitoria. [cite: 21, 106]
+                                Coordenei cursos intensivos de Linux, Python e C, além de workshops de Git. Ofereci
+                                tutoria individual e fui responsável pela criação e manutenção do site da monitoria.
+                            
                             </p>
                         </div>
                     </div>
@@ -409,7 +531,9 @@
                             <h5>Anfitrião e Garçom em Pub de Jogos (Freelance)</h5>
                             <p class="card-text"><i class="bi bi-calendar3"></i> Mai 2022 - Presente</p>
                             <p><strong>Café Ludique Carcassonne Pub</strong> </p>
-                            <p>Recepciono clientes, gerencio pedidos e apresento uma vasta biblioteca de jogos de tabuleiro. [cite: 111] Aprimorei minhas habilidades de comunicação e multitarefa em um ambiente dinâmico. [cite: 113]</p>
+                            <p>Recepciono clientes, gerencio pedidos e apresento uma vasta biblioteca de jogos de
+                                tabuleiro. Aprimorei minhas habilidades de comunicação e multitarefa em um
+                                ambiente dinâmico.</p>
                         </div>
                     </div>
                     <div class="timeline-container right" data-aos="fade-left">
@@ -419,7 +543,9 @@
                             <p>
                                 <strong>leon1960</strong>
                             </p>
-                            <p>Prestei serviço de excelência em um restaurante de luxo para uma clientela diversificada. [cite: 116] Treinado em etiqueta de alta gastronomia para garantir que cada detalhe atingisse os mais altos padrões. [cite: 118]</p>
+                            <p>Prestei serviço de excelência em um restaurante de luxo para uma clientela diversificada.
+                                 Treinado em etiqueta de alta gastronomia para garantir que cada detalhe
+                                atingisse os mais altos padrões. </p>
                         </div>
                     </div>
                 </div>
@@ -520,7 +646,9 @@
                             <div class="card-body d-flex flex-column">
                                 <h3 class="card-title project-titel">Lembrei!</h3>
                                 <p class="card-title">
-                                    Um aplicativo de lembretes projetado para auxiliar pessoas com TDAH, enviando notificações contextuais baseadas na localização do usuário para facilitar a organização de tarefas diárias.
+                                    Um aplicativo de lembretes projetado para auxiliar pessoas com TDAH, enviando
+                                    notificações contextuais baseadas na localização do usuário para facilitar a
+                                    organização de tarefas diárias.
                                 </p>
                                 <a href="https://github.com/Arthurbric/lembrei/tree/main"
                                     class="btn btn-outline-primary mt-auto" target="_blank">Ver no GitHub</a>
@@ -532,10 +660,12 @@
                             <div class="card-body d-flex flex-column">
                                 <h3 class="card-title project-titel">Site de Feedback</h3>
                                 <p class="card-title">
-                                    Plataforma web para estudantes universitários fornecerem feedback construtivo e anônimo sobre professores, com moderação para garantir a qualidade das avaliações e promover melhorias no ensino.
+                                    Plataforma web para estudantes universitários fornecerem feedback construtivo e
+                                    anônimo sobre professores, com moderação para garantir a qualidade das avaliações e
+                                    promover melhorias no ensino.
                                 </p>
-                                <a href="https://github.com/Arthurbric/FeedBack_Site" class="btn btn-outline-primary mt-auto"
-                                    target="_blank">Ver no GitHub</a>
+                                <a href="https://github.com/Arthurbric/FeedBack_Site"
+                                    class="btn btn-outline-primary mt-auto" target="_blank">Ver no GitHub</a>
                             </div>
                         </div>
                     </div>
@@ -544,10 +674,12 @@
                             <div class="card-body d-flex flex-column">
                                 <h3 class="card-title project-titel">Museu Interativo em OpenGL</h3>
                                 <p class="card-title">
-                                    Museu virtual 3D desenvolvido em C com OpenGL, permitindo aos usuários explorar exposições, interagir com artefatos, rotacionar objetos e visualizar reflexos em uma experiência imersiva.
+                                    Museu virtual 3D desenvolvido em C com OpenGL, permitindo aos usuários explorar
+                                    exposições, interagir com artefatos, rotacionar objetos e visualizar reflexos em uma
+                                    experiência imersiva.
                                 </p>
-                                <a href="https://github.com/Arthurbric/Interactive-OpenGL-Museum" class="btn btn-outline-primary mt-auto"
-                                    target="_blank">Ver no GitHub</a>
+                                <a href="https://github.com/Arthurbric/Interactive-OpenGL-Museum"
+                                    class="btn btn-outline-primary mt-auto" target="_blank">Ver no GitHub</a>
                             </div>
                         </div>
                     </div>
@@ -556,10 +688,12 @@
                             <div class="card-body d-flex flex-column">
                                 <h3 class="card-title project-titel">Read Write 4 All</h3>
                                 <p class="card-title">
-                                   Plataforma web inclusiva para promover a alfabetização, com formulários interativos, instruções em áudio, tutoriais em vídeo e texto ajustável para garantir acessibilidade em dispositivos móveis e desktops.
+                                    Plataforma web inclusiva para promover a alfabetização, com formulários interativos,
+                                    instruções em áudio, tutoriais em vídeo e texto ajustável para garantir
+                                    acessibilidade em dispositivos móveis e desktops.
                                 </p>
-                                <a href="https://github.com/Arthurbric/ReadWrite4All-Pi1" class="btn btn-outline-primary mt-auto"
-                                    target="_blank">Ver no GitHub</a>
+                                <a href="https://github.com/Arthurbric/ReadWrite4All-Pi1"
+                                    class="btn btn-outline-primary mt-auto" target="_blank">Ver no GitHub</a>
                             </div>
                         </div>
                     </div>
@@ -568,10 +702,12 @@
                             <div class="card-body d-flex flex-column">
                                 <h3 class="card-title project-titel">EasyRent QuickCar</h3>
                                 <p class="card-title">
-                                    Plataforma full-stack de aluguel de carros com sistema seguro de login e reserva, backend em Python com MySQL e frontend responsivo, oferecendo uma experiência de aluguel intuitiva e completa.
+                                    Plataforma full-stack de aluguel de carros com sistema seguro de login e reserva,
+                                    backend em Python com MySQL e frontend responsivo, oferecendo uma experiência de
+                                    aluguel intuitiva e completa.
                                 </p>
-                                <a href="https://github.com/Arthurbric/EasyRent_QuickCar" class="btn btn-outline-primary mt-auto"
-                                    target="_blank">Ver no GitHub</a>
+                                <a href="https://github.com/Arthurbric/EasyRent_QuickCar"
+                                    class="btn btn-outline-primary mt-auto" target="_blank">Ver no GitHub</a>
                             </div>
                         </div>
                     </div>
@@ -580,10 +716,12 @@
                             <div class="card-body d-flex flex-column">
                                 <h3 class="card-title project-titel">Compilador em C</h3>
                                 <p class="card-title">
-                                    Compilador básico desenvolvido em C para implementar conceitos fundamentais de compilação, como análise léxica, sintática e geração de código, como um projeto acadêmico prático.
+                                    Compilador básico desenvolvido em C para implementar conceitos fundamentais de
+                                    compilação, como análise léxica, sintática e geração de código, como um projeto
+                                    acadêmico prático.
                                 </p>
-                                <a href="https://github.com/Arthurbric/Compiler_C" class="btn btn-outline-primary mt-auto"
-                                    target="_blank">Ver no GitHub</a>
+                                <a href="https://github.com/Arthurbric/Compiler_C"
+                                    class="btn btn-outline-primary mt-auto" target="_blank">Ver no GitHub</a>
                             </div>
                         </div>
                     </div>
@@ -592,10 +730,12 @@
                             <div class="card-body d-flex flex-column">
                                 <h3 class="card-title project-titel">Remake do Front-End do Airbnb</h3>
                                 <p class="card-title">
-                                    Recriação da interface do Airbnb com HTML, CSS e JavaScript, focando em design responsivo, elementos interativos e técnicas de layout modernas para replicar a plataforma de forma visualmente fiel e funcional.
+                                    Recriação da interface do Airbnb com HTML, CSS e JavaScript, focando em design
+                                    responsivo, elementos interativos e técnicas de layout modernas para replicar a
+                                    plataforma de forma visualmente fiel e funcional.
                                 </p>
-                                <a href="https://github.com/Arthurbric/Airbnb_Front-End_Remake" class="btn btn-outline-primary mt-auto"
-                                    target="_blank">Ver no GitHub</a>
+                                <a href="https://github.com/Arthurbric/Airbnb_Front-End_Remake"
+                                    class="btn btn-outline-primary mt-auto" target="_blank">Ver no GitHub</a>
                             </div>
                         </div>
                     </div>
@@ -607,7 +747,8 @@
                                 </div>
                                 <h3 class="card-title project-titel">Novo Projeto em Andamento</h3>
                                 <p class="card-title px-2">
-                                    Estou desenvolvendo e buscando meu próximo projeto desafiador. Um novo estudo de caso estará disponível aqui em breve!
+                                    Estou desenvolvendo e buscando meu próximo projeto desafiador. Um novo estudo de
+                                    caso estará disponível aqui em breve!
                                 </p>
                             </div>
                         </div>
@@ -624,13 +765,14 @@
                         <div class="card p-4 text-center">
                             <i class="bi bi-mortarboard-fill fs-1 text-primary"></i>
                             <h3 class="card-title mt-2">Bacharelado em Ciência da Computação</h3>
-                            <p class="card-title mb-1" style="color: #c9d1d9;">Centro Universitário de Brasília (CEUB)</p>
+                            <p class="card-title mb-1" style="color: #c9d1d9;">Centro Universitário de Brasília (CEUB)
+                            </p>
                             <p class="card-title mb-1" style="color: #c9d1d9;">Conclusão Prevista: Nov/Dez 2025</p>
                         </div>
                     </div>
                 </div>
                 <div class="row">
-                    </div>
+                </div>
             </div>
         </section>
     </main>
@@ -639,7 +781,7 @@
         <div class="container">
             <h2 class="section-title">Entre em Contato</h2>
             <p class="lead">Estou aberto a novas oportunidades. Minha caixa de entrada está sempre disponível.</p>
-            <p><a href="mailto:arthurarash.bric@gmail.com" class="text-white">arthurarash.bric@gmail.com</a></p>
+            <p><a href="mailto:arthurarash.bric@gmail.com" class="email" >arthurarash.bric@gmail.com</a></p>
             <div class="social-links mt-4">
                 <a href="https://www.linkedin.com/in/arthur-arash-briceno-heidari/" target="_blank" title="LinkedIn"><i
                         class="bi bi-linkedin"></i></a>

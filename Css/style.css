@@ -1,0 +1,449 @@
+:root {
+            --primary-color: #0d1117;
+            --secondary-color: #161b22;
+            --accent-color: #58a6ff;
+            --text-color: #c9d1d9;
+            --card-bg: #1e242c;
+        }
+
+        body {
+            position: relative;
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+        }
+
+        /* --- Navigation Bar --- */
+        .navbar {
+            background-color: rgba(13, 17, 23, 0.207);
+            backdrop-filter: blur(20px);
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar .nav-link {
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .navbar .nav-link.active,
+        .navbar .nav-link:hover,
+        .navbar .navbar-brand:hover {
+            color: var(--accent-color) !important;
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+        }
+
+        .lang-switch a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem;
+            border: 1px solid #30363d;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+
+        .lang-switch a:hover {
+            background-color: var(--accent-color);
+            border-color: var(--accent-color);
+            color: var(--primary-color);
+        }
+
+        /* --- Buttons --- */
+        .btn-primary {
+            background-color: var(--accent-color);
+            border-color: var(--accent-color);
+        }
+
+        .btn-primary:hover {
+            background-color: #79bbff;
+            border-color: #79bbff;
+        }
+
+        .btn {
+            margin: 5px;
+        }
+
+        /* fun Back */
+        .back_arthur {
+            background-color: var(--secondary-color);
+            /* Darker background for better contrast */
+            overflow: hidden;
+            /* Keeps the dots inside the section */
+            position: relative;
+        }
+
+        /* Layer 1: Slow-moving, small, dense dots */
+        .back_arthur::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image:
+                radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.4) 1px, transparent 1px),
+                radial-gradient(circle at 80% 30%, rgba(255, 255, 255, 0.3) 1px, transparent 1px),
+                radial-gradient(circle at 30% 70%, rgba(255, 255, 255, 0.5) 1px, transparent 1px),
+                radial-gradient(circle at 60% 90%, rgba(255, 255, 255, 0.4) 1px, transparent 1px);
+            background-size: 200px 200px;
+            background-repeat: repeat;
+            /* Animation for the first layer */
+            animation: drift 5s linear infinite;
+        }
+
+        /* Layer 2: Faster-moving, larger, sparse dots */
+        .back_arthur::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image:
+                radial-gradient(circle at 25% 50%, var(--accent-color) 2px, transparent 2px),
+                radial-gradient(circle at 90% 10%, var(--accent-color) 2px, transparent 2px),
+                radial-gradient(circle at 50% 80%, var(--accent-color) 2px, transparent 2px);
+            background-size: 100% 100%;
+            background-repeat: repeat;
+            /* Animation for the second layer (faster) */
+            animation: drift 5s linear infinite;
+        }
+
+        /* The new, continuous animation keyframe */
+        @keyframes drift {
+            from {
+                transform: translateY(0px);
+            }
+
+            to {
+                /* This value should match the background-size for a seamless loop */
+                transform: translateY(-400px);
+            }
+        }
+
+        /* Fun back 2 */
+        .back_arthur2 {
+            background-color: var(--secondary-color);
+            background-image:
+                radial-gradient(circle at 15% 30%, rgba(255, 255, 255, 0.1) 5%, transparent 0),
+                radial-gradient(circle at 66% 45%, rgba(255, 255, 255, 0.1) 10%, transparent 0),
+                radial-gradient(circle at 35% 38%, rgba(255, 255, 255, 0.05) 12%, transparent 0),
+                radial-gradient(circle at 85% 10%, rgba(255, 255, 255, 0.1) 3%, transparent 0);
+            background-size: 100% 100%;
+            animation: float-particles 60s linear infinite;
+        }
+
+        @keyframes float-particles {
+            from {
+                background-position: 0 0, 0 0, 0 0, 0 0;
+            }
+
+            to {
+                background-position: 0 -1000px, 0 -1200px, 0 -1100px, 0 -1150px;
+            }
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            padding: 120px 0;
+            background: linear-gradient(135deg, var(--primary-color) 0%, #2a3340 100%);
+            border-bottom: 1px solid var(--accent-color);
+        }
+
+        .hero h1 {
+            font-size: 3.8rem;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        .hero .lead {
+            font-size: 1.5rem;
+            color: var(--accent-color);
+        }
+
+        .profile-photo {
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 5px solid var(--accent-color);
+            box-shadow: 0 0 25px rgba(88, 166, 255, 0.5);
+        }
+
+        /* --- General Section Styling --- */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background-color: var(--accent-color);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        .project-titel::after {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 3px;
+            background-color: var(--accent-color);
+            margin: 10px 0 0;
+            border-radius: 2px;
+        }
+
+        /* --- Skills Section --- */
+        .skill-card {
+            background-color: var(--card-bg);
+            padding: 30px;
+            border-radius: 10px;
+            border: 1px solid #30363d;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .skill-icon {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            margin-bottom: 15px;
+        }
+
+        .skill-h4 {
+            margin-bottom: 25px;
+        }
+
+        .skill-badge {
+            display: inline-block;
+            /* This is the key change */
+            background-color: #30363d;
+            color: var(--text-color);
+            padding: 0.5em 1em;
+            margin: 5px;
+            border-radius: 5px;
+            font-weight: 500;
+        }
+
+        /* --- Experience Timeline --- */
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: var(--accent-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -4.5px;
+            border-radius: 3px;
+        }
+
+        .timeline-container {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+        }
+
+        .timeline-container.left {
+            left: 0;
+        }
+
+        .timeline-container.right {
+            left: 50%;
+        }
+
+        .timeline-container::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            right: -10px;
+            background-color: var(--accent-color);
+            border: 4px solid var(--accent-color);
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .timeline-container.right::after {
+            left: -14px;
+        }
+
+        .timeline-content {
+            padding: 20px 30px;
+            background-color: var(--card-bg);
+            position: relative;
+            border-radius: 6px;
+            border: 1px solid #30363d;
+        }
+
+        /* --- Projects & Certifications Cards --- */
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid #30363d;
+            border-radius: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .card-title {
+            color: #ffffff;
+        }
+
+        /* --- Languages Section --- */
+        .progress {
+            height: 25px;
+            background-color: #30363d;
+        }
+
+        .progress-bar {
+            background-color: var(--accent-color);
+            font-weight: bold;
+        }
+        /* email */
+        .email{
+            color: var(--accent-color);
+        }
+        .email:hover{
+            color: #ffffff;
+            text-decoration-line: none;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background: linear-gradient(135deg, #2a3340 0%, var(--primary-color) 100%);
+            padding: 60px 0;
+            text-align: center;
+            border-top: 1px solid var(--accent-color);
+        }
+
+        footer a {
+            color: var(--text-color);
+            font-size: 2rem;
+            margin: 0 15px;
+            transition: color 0.3s;
+        }
+
+        footer a:hover {
+            color: var(--accent-color);
+        }
+
+        /* --- MOBILE RESPONSIVENESS --- */
+        @media screen and (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.8rem;
+                /* Smaller title on mobile */
+            }
+
+            /* Center the timeline line to the left */
+            .timeline::after {
+                left: 31px;
+            }
+
+            /* Make all timeline containers full-width */
+            .timeline-container {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+
+            /* Move all containers to the right of the timeline line */
+            .timeline-container.left,
+            .timeline-container.right {
+                left: 0%;
+            }
+
+            /* Adjust the position of the timeline dots */
+            .timeline-container.left::after,
+            .timeline-container.right::after {
+                left: 15px;
+            }
+        }
+
+        /* Add these styles to make the clickable card look right */
+        .card-link-wrapper {
+            display: block;
+            /* Makes the link fill the column */
+            text-decoration: none;
+            /* Removes the default underline */
+            color: inherit;
+            /* Keeps your original text color */
+            height: 100%;
+        }
+
+        .card-link-wrapper:hover {
+            color: inherit;
+            /* Prevents text color from changing on hover */
+        }
+
+        .card-icon {
+            color: var(--accent-color);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover .card-icon {
+            transform: scale(1.1);
+            /* Adds a nice effect to the icon on hover */
+        }
+
+        /* Cooming soon  */
+
+        /* Styles for the "Coming Soon" project card */
+
+        .card-coming-soon {
+            /* A subtle dashed border to indicate it's a placeholder */
+            border: 2px dashed #444;
+            background-color: var(--primary-color);
+            opacity: 0.6;
+            transition: all 0.4s ease;
+        }
+
+        .card-coming-soon:hover {
+            opacity: 1;
+            /* Becomes fully visible on hover */
+            border-color: var(--accent-color);
+            transform: translateY(-5px);
+        }
+
+        .wip-icon i {
+            font-size: 3rem;
+            /* Make the icon larger */
+            color: var(--accent-color);
+            /* Apply the spinning animation */
+            animation: spin 5s linear infinite;
+        }
+
+        /* Keyframe animation for spinning the icon */
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }

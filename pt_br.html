@@ -13,426 +13,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
-    <style>
-        :root {
-            --primary-color: #0d1117;
-            --secondary-color: #161b22;
-            --accent-color: #58a6ff;
-            --text-color: #c9d1d9;
-            --card-bg: #1e242c;
-        }
-
-        body {
-            position: relative;
-            font-family: 'Poppins', sans-serif;
-            background-color: var(--secondary-color);
-            color: var(--text-color);
-        }
-
-        .navbar {
-            background-color: rgba(13, 17, 23, 0.207);
-            backdrop-filter: blur(20px);
-            transition: background-color 0.3s ease;
-        }
-
-        .navbar .nav-link {
-            color: var(--text-color);
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        .navbar .nav-link.active,
-        .navbar .nav-link:hover,
-        .navbar .navbar-brand:hover {
-            color: var(--accent-color) !important;
-        }
-
-        .navbar-brand {
-            font-weight: 700;
-        }
-
-        .lang-switch a {
-            color: var(--text-color);
-            text-decoration: none;
-            font-weight: 500;
-            padding: 0.5rem;
-            border: 1px solid #30363d;
-            border-radius: 5px;
-            transition: all 0.3s;
-        }
-
-        .lang-switch a:hover {
-            background-color: var(--accent-color);
-            border-color: var(--accent-color);
-            color: var(--primary-color);
-        }
-
-        .btn-primary {
-            background-color: var(--accent-color);
-            border-color: var(--accent-color);
-        }
-
-        .btn-primary:hover {
-            background-color: #79bbff;
-            border-color: #79bbff;
-        }
-
-        .btn {
-            margin: 5px;
-        }
-
-        .back_arthur {
-            background-color: var(--secondary-color);
-            overflow: hidden;
-            position: relative;
-        }
-
-        .back_arthur::before {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background-image:
-                radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.4) 1px, transparent 1px),
-                radial-gradient(circle at 80% 30%, rgba(255, 255, 255, 0.3) 1px, transparent 1px),
-                radial-gradient(circle at 30% 70%, rgba(255, 255, 255, 0.5) 1px, transparent 1px),
-                radial-gradient(circle at 60% 90%, rgba(255, 255, 255, 0.4) 1px, transparent 1px);
-            background-size: 200px 200px;
-            background-repeat: repeat;
-            animation: drift 5s linear infinite;
-        }
-
-        .back_arthur::after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background-image:
-                radial-gradient(circle at 25% 50%, var(--accent-color) 2px, transparent 2px),
-                radial-gradient(circle at 90% 10%, var(--accent-color) 2px, transparent 2px),
-                radial-gradient(circle at 50% 80%, var(--accent-color) 2px, transparent 2px);
-            background-size: 100% 100%;
-            background-repeat: repeat;
-            animation: drift 5s linear infinite;
-        }
-
-        @keyframes drift {
-            from {
-                transform: translateY(0px);
-            }
-
-            to {
-                transform: translateY(-400px);
-            }
-        }
-
-        .back_arthur2 {
-            background-color: var(--secondary-color);
-            background-image:
-                radial-gradient(circle at 15% 30%, rgba(255, 255, 255, 0.1) 5%, transparent 0),
-                radial-gradient(circle at 66% 45%, rgba(255, 255, 255, 0.1) 10%, transparent 0),
-                radial-gradient(circle at 35% 38%, rgba(255, 255, 255, 0.05) 12%, transparent 0),
-                radial-gradient(circle at 85% 10%, rgba(255, 255, 255, 0.1) 3%, transparent 0);
-            background-size: 100% 100%;
-            animation: float-particles 60s linear infinite;
-        }
-
-        @keyframes float-particles {
-            from {
-                background-position: 0 0, 0 0, 0 0, 0 0;
-            }
-
-            to {
-                background-position: 0 -1000px, 0 -1200px, 0 -1100px, 0 -1150px;
-            }
-        }
-
-        .hero {
-            padding: 120px 0;
-            background: linear-gradient(135deg, var(--primary-color) 0%, #2a3340 100%);
-            border-bottom: 1px solid var(--accent-color);
-        }
-
-        .hero h1 {
-            font-size: 3.8rem;
-            font-weight: 700;
-            color: #ffffff;
-        }
-
-        .hero .lead {
-            font-size: 1.5rem;
-            color: var(--accent-color);
-        }
-
-        .profile-photo {
-            width: 300px;
-            height: 300px;
-            object-fit: cover;
-            border-radius: 50%;
-            border: 5px solid var(--accent-color);
-            box-shadow: 0 0 25px rgba(88, 166, 255, 0.5);
-        }
-
-        .section {
-            padding: 80px 0;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 60px;
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #ffffff;
-        }
-
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 100px;
-            height: 4px;
-            background-color: var(--accent-color);
-            margin: 10px auto 0;
-            border-radius: 2px;
-        }
-
-        .project-titel::after {
-            content: '';
-            display: block;
-            width: 100%;
-            height: 3px;
-            background-color: var(--accent-color);
-            margin: 10px 0 0;
-            border-radius: 2px;
-        }
-
-        .skill-card {
-            background-color: var(--card-bg);
-            padding: 30px;
-            border-radius: 10px;
-            border: 1px solid #30363d;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .skill-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-        }
-
-        .skill-icon {
-            font-size: 2.5rem;
-            color: var(--accent-color);
-            margin-bottom: 15px;
-        }
-
-        .skill-h4 {
-            margin-bottom: 25px;
-        }
-
-        .skill-badge {
-            display: inline-block;
-            background-color: #30363d;
-            color: var(--text-color);
-            padding: 0.5em 1em;
-            margin: 5px;
-            border-radius: 5px;
-            font-weight: 500;
-        }
-
-        .timeline {
-            position: relative;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .timeline::after {
-            content: '';
-            position: absolute;
-            width: 6px;
-            background-color: var(--accent-color);
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            margin-left: -4.5px;
-            border-radius: 3px;
-        }
-
-        .timeline-container {
-            padding: 10px 40px;
-            position: relative;
-            background-color: inherit;
-            width: 50%;
-        }
-
-        .timeline-container.left {
-            left: 0;
-        }
-
-        .timeline-container.right {
-            left: 50%;
-        }
-
-        .timeline-container::after {
-            content: '';
-            position: absolute;
-            width: 25px;
-            height: 25px;
-            right: -10px;
-            background-color: var(--accent-color);
-            border: 4px solid var(--accent-color);
-            top: 15px;
-            border-radius: 50%;
-            z-index: 1;
-        }
-
-        .timeline-container.right::after {
-            left: -14px;
-        }
-
-        .timeline-content {
-            padding: 20px 30px;
-            background-color: var(--card-bg);
-            position: relative;
-            border-radius: 6px;
-            border: 1px solid #30363d;
-        }
-
-        .card {
-            background-color: var(--card-bg);
-            border: 1px solid #30363d;
-            border-radius: 10px;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-        }
-
-        .card-title {
-            color: #ffffff;
-        }
-
-        .progress {
-            height: 25px;
-            background-color: #30363d;
-        }
-
-        .progress-bar {
-            background-color: var(--accent-color);
-            font-weight: bold;
-        }
-
-        /* email */
-        .email{
-            color: var(--accent-color);
-        }
-        .email:hover{
-            color: #ffffff;
-            text-decoration-line: none;
-        }
-
-        footer {
-            background: linear-gradient(135deg, #2a3340 0%, var(--primary-color) 100%);
-            padding: 60px 0;
-            text-align: center;
-            border-top: 1px solid var(--accent-color);
-        }
-
-        footer a {
-            color: var(--text-color);
-            font-size: 2rem;
-            margin: 0 15px;
-            transition: color 0.3s;
-        }
-
-        footer a:hover {
-            color: var(--accent-color);
-        }
-
-        @media screen and (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.8rem;
-            }
-
-            .timeline::after {
-                left: 31px;
-            }
-
-            .timeline-container {
-                width: 100%;
-                padding-left: 70px;
-                padding-right: 25px;
-            }
-
-            .timeline-container.left,
-            .timeline-container.right {
-                left: 0%;
-            }
-
-            .timeline-container.left::after,
-            .timeline-container.right::after {
-                left: 15px;
-            }
-        }
-
-        .card-link-wrapper {
-            display: block;
-            text-decoration: none;
-            color: inherit;
-            height: 100%;
-        }
-
-        .card-link-wrapper:hover {
-            color: inherit;
-        }
-
-        .card-icon {
-            color: var(--accent-color);
-            transition: transform 0.3s ease;
-        }
-
-        .card:hover .card-icon {
-            transform: scale(1.1);
-        }
-
-        .card-coming-soon {
-            border: 2px dashed #444;
-            background-color: var(--primary-color);
-            opacity: 0.6;
-            transition: all 0.4s ease;
-        }
-
-        .card-coming-soon:hover {
-            opacity: 1;
-            border-color: var(--accent-color);
-            transform: translateY(-5px);
-        }
-
-        .wip-icon i {
-            font-size: 3rem;
-            color: var(--accent-color);
-            animation: spin 5s linear infinite;
-        }
-
-        @keyframes spin {
-            from {
-                transform: rotate(0deg);
-            }
-
-            to {
-                transform: rotate(360deg);
-            }
-        }
-
-    </style>
+    <link rel="stylesheet" href="Css/style.css">
 </head>
 
 <body data-bs-spy="scroll" data-bs-target="#mainNavbar" data-bs-offset="80" tabindex="0">
 
     <nav id="mainNavbar" class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="#">Arthur A. B. Heidari</a>
+            <a class="navbar-brand" href="https://www.linkedin.com/in/arthur-arash/" target="_blank">Arthur A. B. Heidari</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -479,7 +67,7 @@
                     </div>
                 </div>
                 <div class="col-lg-5 text-center mt-5 mt-lg-0">
-                    <img src="img/ArthurArash.png" alt="Arthur Arash Briceno Heidari" class="profile-photo img-fluid"
+                    <img src="img/Arthur_Arash2.png" alt="Arthur Arash Briceno Heidari" class="profile-photo img-fluid"
                         data-aos="fade-left">
                 </div>
             </div>
@@ -522,7 +110,7 @@
                             <p>
                                 Coordenei cursos intensivos de Linux, Python e C, além de workshops de Git. Ofereci
                                 tutoria individual e fui responsável pela criação e manutenção do site da monitoria.
-                            
+
                             </p>
                         </div>
                     </div>
@@ -544,7 +132,7 @@
                                 <strong>leon1960</strong>
                             </p>
                             <p>Prestei serviço de excelência em um restaurante de luxo para uma clientela diversificada.
-                                 Treinado em etiqueta de alta gastronomia para garantir que cada detalhe
+                                Treinado em etiqueta de alta gastronomia para garantir que cada detalhe
                                 atingisse os mais altos padrões. </p>
                         </div>
                     </div>
@@ -772,6 +360,154 @@
                     </div>
                 </div>
                 <div class="row">
+                    <div class="row">
+
+                        <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up">
+                            <div class="card text-center h-100 p-3 card-link-wrapper">
+                                <img src="Certifications/En-Certifications/SCA_SLES154776.pdf" class="card-img-top"
+                                    alt="Certificado SUSE SLES 15">
+                                <div class="card-body">
+                                    <h5 class="card-title mt-2">SCA (Administrador Certificado SUSE) em SUSE Linux
+                                        Enterprise Server 15</h5>
+                                    <p class="card-text ">
+                                        Sobrenome: Briceño Heidari <br>
+                                        Certificação: 4776 <br>
+                                        Data de Emissão: 29/12/2024
+                                    </p>
+                                    <div class="row text-center">
+                                        <a href="https://badges.suse.com/07963b51-e782-44ff-8401-fdadf02c2b21#acc.JVoZiC7H"
+                                            class="btn btn-primary col" target="_blank">
+                                            Certificado Oficial
+                                        </a>
+                                        <a href="https://suse.useclarus.com/view/verify/" class="btn btn-primary col"
+                                            target="_blank">
+                                            Verificar Certificação
+                                        </a>
+                                    </div>
+                                    <a href="Certifications/En-Certifications/SCA_SLES154776.pdf"
+                                        class="btn btn-outline-light" download target="_blank">
+                                        <i class="bi bi-download me-2"></i>Baixar Certificado
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                            <div class="card text-center h-100 p-3 card-link-wrapper">
+                                <img src="Certifications/En-Certifications/SCA_SUMA42296.pdf" class="card-img-top"
+                                    alt="Certificado SUSE Manager 4">
+                                <div class="card-body">
+                                    <h5 class="card-title mt-2">SCA (Administrador Certificado SUSE) em SUSE Manager 4
+                                    </h5>
+                                    <p class="card-text ">
+                                        Sobrenome: Briceño Heidari <br>
+                                        Certificação: 2296 <br>
+                                        Data de Emissão: 27/04/2025
+                                    </p>
+                                    <div class="row text-center">
+                                        <a href="https://badges.suse.com/6a4d0e61-16a9-4b4a-82dd-5649a1297887#acc.nEpJ4svf"
+                                            class="btn btn-primary col" target="_blank">
+                                            Certificado Oficial
+                                        </a>
+                                        <a href="https://suse.useclarus.com/view/verify/" class="btn btn-primary col "
+                                            target="_blank">
+                                            Verificar Certificação
+                                        </a>
+                                    </div>
+                                    <a href="Certifications/En-Certifications/SCA_SUMA42296.pdf"
+                                        class="btn btn-outline-light" download target="_blank">
+                                        <i class="bi bi-download me-2"></i>Baixar Certificado
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                            <div class="card text-center h-100 p-3 card-link-wrapper">
+                                <img src="Certifications/En-Certifications/Arthur Arash - Course Docker_ creating and managing containers - Alura.pdf"
+                                    class="card-img-top" alt="Certificado Docker Alura">
+                                <div class="card-body">
+                                    <div class="card-icon fs-1">
+                                        <i class="bi bi-patch-check-fill"></i>
+                                    </div>
+                                    <h5 class="card-title mt-2">Docker: Criando e Gerenciando Containers</h5>
+                                    <p class="card-text ">Alura, 2024 (12 horas)</p>
+                                    <a href="https://cursos.alura.com.br/certificate/1fb39b4d-8ad7-4600-96f4-be36f30405ae?lang=en"
+                                        class="btn btn-primary" target="_blank">
+                                        Certificado Oficial
+                                    </a>
+                                    <a href="Certifications/En-Certifications/Arthur Arash - Course Docker_ creating and managing containers - Alura.pdf"
+                                        class="btn btn-outline-light" download target="_blank">
+                                        <i class="bi bi-download me-2"></i>Baixar Certificado
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                            <div class="card text-center h-100 p-3 card-link-wrapper">
+                                <object class="card-img-top h-50"
+                                    data="Certifications/En-Certifications/Arthur Arash - Course Docker_ creating and managing containers - Alura.pdf"
+                                    type="application/pdf"></object>
+                                <div class="card-body">
+                                    <h5 class="card-title mt-2">Docker: Criando e Gerenciando Containers</h5>
+                                    <p class="card-text ">Alura, 2024 (12 horas)</p>
+                                    <a href="https://cursos.alura.com.br/certificate/1fb39b4d-8ad7-4600-96f4-be36f30405ae?lang=en"
+                                        class="btn btn-primary" target="_blank">
+                                        Certificado Oficial
+                                    </a>
+                                    <a href="Certifications/En-Certifications/Arthur Arash - Course Docker_ creating and managing containers - Alura.pdf"
+                                        class="btn btn-outline-light" download target="_blank">
+                                        <i class="bi bi-download me-2"></i>Baixar Certificado
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                            <div class="card text-center h-100 p-3 card-link-wrapper">
+                                <img src="Certifications/PNG-Certification/Linux.jpg" class="card-img-top"
+                                    alt="Certificado Linux Alura">
+                                <div class="card-body">
+                                    <h5 class="card-title mt-2">
+                                        Linux: Gerenciando Diretórios, Arquivos, Permissões e Processos
+                                    </h5>
+                                    <p class="card-text ">Alura, 2025 (8 horas)</p>
+                                    <a href="https://cursos.alura.com.br/certificate/0a783fd2-0377-4bc8-9cbf-aba6e8f875a7?lang=en"
+                                        class="btn btn-primary" target="_blank">
+                                        Certificado Oficial
+                                    </a>
+                                    <a href="Certifications/En-Certifications/Arthur Arash - Course Linux_ managing directories, files, permissions, and processes - Alura.pdf"
+                                        class="btn btn-outline-light" download target="_blank">
+                                        <i class="bi bi-download me-2"></i>Baixar Certificado
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                            <div class="card text-center h-100 p-3 card-link-wrapper">
+                                <embed class="card-img-top h-50"
+                                    src="Certifications/En-Certifications/Arthur Arash - Course Git and GitHub_ sharing and collaborating on projects - Alura.pdf"
+                                    type="application/pdf" width="100%" />
+                                <div class="card-body h-50">
+                                    <h5 class="card-title mt-2">
+                                        Git e GitHub: Compartilhando e Colaborando em Projetos
+                                    </h5>
+                                    <p class="card-text ">Alura, 2025 (8 horas)</p>
+                                    <a href="https://cursos.alura.com.br/user/arthurarash-bric/course/linux-gerenciando-diretorios-arquivos-permissoes-processos/formalCertificate"
+                                        class="btn btn-primary" target="_blank">
+                                        Certificado Oficial
+                                    </a>
+                                    <a href="Certifications/En-Certifications/Arthur Arash - Course Git and GitHub_ sharing and collaborating on projects - Alura.pdf"
+                                        class="btn btn-outline-light" download target="_blank">
+                                        <i class="bi bi-download me-2"></i>Baixar Certificado
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
             </div>
         </section>
@@ -781,7 +517,7 @@
         <div class="container">
             <h2 class="section-title">Entre em Contato</h2>
             <p class="lead">Estou aberto a novas oportunidades. Minha caixa de entrada está sempre disponível.</p>
-            <p><a href="mailto:arthurarash.bric@gmail.com" class="email" >arthurarash.bric@gmail.com</a></p>
+            <p><a href="mailto:arthurarash.bric@gmail.com" class="email">arthurarash.bric@gmail.com</a></p>
             <div class="social-links mt-4">
                 <a href="https://www.linkedin.com/in/arthur-arash-briceno-heidari/" target="_blank" title="LinkedIn"><i
                         class="bi bi-linkedin"></i></a>

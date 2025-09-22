@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arthur Arash Briceno Heidari | Portfólio Web</title>
+    <link rel="apple-touch-icon" href="img/award.svg">
+    <link rel="shortcut icon" href="img/award.svg" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-color: #0d1117;
+            --secondary-color: #161b22;
+            --accent-color: #58a6ff;
+            --text-color: #c9d1d9;
+            --card-bg: #1e242c;
+        }
+        body {
+            position: relative;
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+        }
+        .navbar {
+            background-color: rgba(13, 17, 23, 0.207);
+            backdrop-filter: blur(20px);
+            transition: background-color 0.3s ease;
+        }
+        .navbar .nav-link {
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .navbar .nav-link.active,
+        .navbar .nav-link:hover,
+        .navbar .navbar-brand:hover {
+            color: var(--accent-color) !important;
+        }
+        .navbar-brand { font-weight: 700; }
+        .lang-switch a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem;
+            border: 1px solid #30363d;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+        .lang-switch a:hover {
+            background-color: var(--accent-color);
+            border-color: var(--accent-color);
+            color: var(--primary-color);
+        }
+        .btn-primary {
+            background-color: var(--accent-color);
+            border-color: var(--accent-color);
+        }
+        .btn-primary:hover {
+            background-color: #79bbff;
+            border-color: #79bbff;
+        }
+        .btn { margin: 5px; }
+        .back_arthur {
+            background-color: var(--secondary-color);
+            overflow: hidden;
+            position: relative;
+        }
+        .back_arthur::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image:
+                radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.4) 1px, transparent 1px),
+                radial-gradient(circle at 80% 30%, rgba(255, 255, 255, 0.3) 1px, transparent 1px),
+                radial-gradient(circle at 30% 70%, rgba(255, 255, 255, 0.5) 1px, transparent 1px),
+                radial-gradient(circle at 60% 90%, rgba(255, 255, 255, 0.4) 1px, transparent 1px);
+            background-size: 200px 200px;
+            background-repeat: repeat;
+            animation: drift 5s linear infinite;
+        }
+        .back_arthur::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image:
+                radial-gradient(circle at 25% 50%, var(--accent-color) 2px, transparent 2px),
+                radial-gradient(circle at 90% 10%, var(--accent-color) 2px, transparent 2px),
+                radial-gradient(circle at 50% 80%, var(--accent-color) 2px, transparent 2px);
+            background-size: 100% 100%;
+            background-repeat: repeat;
+            animation: drift 5s linear infinite;
+        }
+        @keyframes drift {
+            from { transform: translateY(0px); }
+            to { transform: translateY(-400px); }
+        }
+        .back_arthur2 {
+            background-color: var(--secondary-color);
+            background-image:
+                radial-gradient(circle at 15% 30%, rgba(255, 255, 255, 0.1) 5%, transparent 0),
+                radial-gradient(circle at 66% 45%, rgba(255, 255, 255, 0.1) 10%, transparent 0),
+                radial-gradient(circle at 35% 38%, rgba(255, 255, 255, 0.05) 12%, transparent 0),
+                radial-gradient(circle at 85% 10%, rgba(255, 255, 255, 0.1) 3%, transparent 0);
+            background-size: 100% 100%;
+            animation: float-particles 60s linear infinite;
+        }
+        @keyframes float-particles {
+            from { background-position: 0 0, 0 0, 0 0, 0 0; }
+            to { background-position: 0 -1000px, 0 -1200px, 0 -1100px, 0 -1150px; }
+        }
+        .hero {
+            padding: 120px 0;
+            background: linear-gradient(135deg, var(--primary-color) 0%, #2a3340 100%);
+            border-bottom: 1px solid var(--accent-color);
+        }
+        .hero h1 {
+            font-size: 3.8rem;
+            font-weight: 700;
+            color: #ffffff;
+        }
+        .hero .lead {
+            font-size: 1.5rem;
+            color: var(--accent-color);
+        }
+        .profile-photo {
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 5px solid var(--accent-color);
+            box-shadow: 0 0 25px rgba(88, 166, 255, 0.5);
+        }
+        .section { padding: 80px 0; }
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #ffffff;
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background-color: var(--accent-color);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+        .project-titel::after {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 3px;
+            background-color: var(--accent-color);
+            margin: 10px 0 0;
+            border-radius: 2px;
+        }
+        .skill-card {
+            background-color: var(--card-bg);
+            padding: 30px;
+            border-radius: 10px;
+            border: 1px solid #30363d;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+        .skill-icon {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            margin-bottom: 15px;
+        }
+        .skill-h4 { margin-bottom: 25px; }
+        .skill-badge {
+            display: inline-block;
+            background-color: #30363d;
+            color: var(--text-color);
+            padding: 0.5em 1em;
+            margin: 5px;
+            border-radius: 5px;
+            font-weight: 500;
+        }
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: var(--accent-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -4.5px;
+            border-radius: 3px;
+        }
+        .timeline-container {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+        }
+        .timeline-container.left { left: 0; }
+        .timeline-container.right { left: 50%; }
+        .timeline-container::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            right: -10px;
+            background-color: var(--accent-color);
+            border: 4px solid var(--accent-color);
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        .timeline-container.right::after { left: -14px; }
+        .timeline-content {
+            padding: 20px 30px;
+            background-color: var(--card-bg);
+            position: relative;
+            border-radius: 6px;
+            border: 1px solid #30363d;
+        }
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid #30363d;
+            border-radius: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+        .card-title { color: #ffffff; }
+        .progress {
+            height: 25px;
+            background-color: #30363d;
+        }
+        .progress-bar {
+            background-color: var(--accent-color);
+            font-weight: bold;
+        }
+        footer {
+            background: linear-gradient(135deg, #2a3340 0%, var(--primary-color) 100%);
+            padding: 60px 0;
+            text-align: center;
+            border-top: 1px solid var(--accent-color);
+        }
+        footer a {
+            color: var(--text-color);
+            font-size: 2rem;
+            margin: 0 15px;
+            transition: color 0.3s;
+        }
+        footer a:hover { color: var(--accent-color); }
+        @media screen and (max-width: 768px) {
+            .hero h1 { font-size: 2.8rem; }
+            .timeline::after { left: 31px; }
+            .timeline-container {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            .timeline-container.left,
+            .timeline-container.right { left: 0%; }
+            .timeline-container.left::after,
+            .timeline-container.right::after { left: 15px; }
+        }
+        .card-link-wrapper {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+            height: 100%;
+        }
+        .card-link-wrapper:hover { color: inherit; }
+        .card-icon {
+            color: var(--accent-color);
+            transition: transform 0.3s ease;
+        }
+        .card:hover .card-icon { transform: scale(1.1); }
+        .card-coming-soon {
+            border: 2px dashed #444;
+            background-color: var(--primary-color);
+            opacity: 0.6;
+            transition: all 0.4s ease;
+        }
+        .card-coming-soon:hover {
+            opacity: 1;
+            border-color: var(--accent-color);
+            transform: translateY(-5px);
+        }
+        .wip-icon i {
+            font-size: 3rem;
+            color: var(--accent-color);
+            animation: spin 5s linear infinite;
+        }
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+
+<body data-bs-spy="scroll" data-bs-target="#mainNavbar" data-bs-offset="80" tabindex="0">
+
+    <nav id="mainNavbar" class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Arthur A. B. Heidari</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#about">Sobre</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#experience">Experiência</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Competências</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Projetos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#certifications">Certificações</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contato</a></li>
+                    <li class="nav-item lang-switch d-flex align-items-center ms-lg-3">
+                        <a href="index.html"><i class="bi bi-translate me-1"></i>EN-US</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero" id="about">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-7 text-center text-lg-start">
+                    <p class="lead">Graduando em Ciência da Computação</p>
+                    <h1 data-aos="fade-right">Arthur Arash Briceno Heidari</h1>
+                    <p data-aos="fade-right" data-aos-delay="200" class="my-4">
+                        Profissional focado em soluções com uma formação diversificada em tecnologia, dados e atendimento ao cliente. Atualmente estagiando como Arquiteto de Soluções na SUSE, com capacidade comprovada de colaborar com equipes multifuncionais, projetar soluções de software eficazes e aprender rapidamente.
+                    </p>
+                    <p data-aos="fade-right" data-aos-delay="200" class="my-4">
+                        Estou ansioso para aplicar uma base técnica sólida e habilidades transferíveis em uma nova função, impulsionado por uma paixão pelo aprendizado contínuo.
+                    </p>
+
+                    <div data-aos="fade-up" data-aos-delay="400">
+                        <a href="#projects" class="btn btn-primary btn-lg">Ver Meus Projetos</a>
+                        <a href="Resume/Curriculo - Arthur Arash Briceno Heidari.pdf" class="btn btn-outline-light btn-lg"
+                            download>
+                            <i class="bi bi-download me-2"></i>
+                            Baixar Currículo
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-5 text-center mt-5 mt-lg-0">
+                    <img src="img/ArthurArash.png" alt="Arthur Arash Briceno Heidari" class="profile-photo img-fluid"
+                        data-aos="fade-left">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="experience" class="section back_arthur">
+            <div class="container">
+                <h2 class="section-title">Experiência Profissional</h2>
+                <div class="timeline">
+                    <div class="timeline-container right" data-aos="fade-left">
+                        <div class="timeline-content">
+                            <h5>Arquiteto de Soluções (Estagiário)</h5>
+                            <p class="card-text "><i class="bi bi-calendar3"></i> Jan 2024 - Presente</p>
+                            <p><strong>SUSE Linux</strong></p>
+                            <ul>
+                                <li>Colaboro com equipes multifuncionais para projetar soluções de software eficazes. [cite: 13, 94]</li>
+                                <li>Contribuo para a criação e documentação de arquiteturas de soluções. [cite: 13, 95]</li>
+                                <li>Participo na avaliação de tecnologias e no desenvolvimento de provas de conceito (PoCs). [cite: 14, 97]</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="timeline-container left" data-aos="fade-right">
+                        <div class="timeline-content">
+                            <h5>Engenheiro de Dados</h5>
+                            <p class="card-text"><i class="bi bi-calendar3"></i> Jul 2023 - Jan 2024</p>
+                            <p><strong>PGFN</strong></p>
+                            <p>Especializado no uso de tecnologias de Big Data e Data Lake, utilizando Python, Selenium e SQL para extração e manipulação de dados através de Web Scraping. [cite: 16, 17, 18, 101]</p>
+                        </div>
+                    </div>
+                    <div class="timeline-container right" data-aos="fade-left">
+                        <div class="timeline-content">
+                            <h5>Representante da Monitoria</h5>
+                            <p class="card-text"><i class="bi bi-calendar3"></i> Jan 2022 - Presente</p>
+                            <p><strong>Centro Universitário de Brasília (CEUB)</strong> </p>
+                            <p>
+                                Coordenei cursos intensivos de Linux, Python e C, além de workshops de Git. [cite: 20] Ofereci tutoria individual e fui responsável pela criação e manutenção do site da monitoria. [cite: 21, 106]
+                            </p>
+                        </div>
+                    </div>
+                    <div class="timeline-container left" data-aos="fade-right">
+                        <div class="timeline-content">
+                            <h5>Anfitrião e Garçom em Pub de Jogos (Freelance)</h5>
+                            <p class="card-text"><i class="bi bi-calendar3"></i> Mai 2022 - Presente</p>
+                            <p><strong>Café Ludique Carcassonne Pub</strong> </p>
+                            <p>Recepciono clientes, gerencio pedidos e apresento uma vasta biblioteca de jogos de tabuleiro. [cite: 111] Aprimorei minhas habilidades de comunicação e multitarefa em um ambiente dinâmico. [cite: 113]</p>
+                        </div>
+                    </div>
+                    <div class="timeline-container right" data-aos="fade-left">
+                        <div class="timeline-content">
+                            <h5>Garçom Profissional Bilíngue</h5>
+                            <p class="card-text"><i class="bi bi-calendar3"></i> Ago 2017 - Nov 2018</p>
+                            <p>
+                                <strong>leon1960</strong>
+                            </p>
+                            <p>Prestei serviço de excelência em um restaurante de luxo para uma clientela diversificada. [cite: 116] Treinado em etiqueta de alta gastronomia para garantir que cada detalhe atingisse os mais altos padrões. [cite: 118]</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="section" style="background-color: var(--primary-color);">
+            <div class="container">
+                <h2 class="section-title">Competências Técnicas</h2>
+                <div class="row g-4">
+                    <div class="col-lg-4" data-aos="fade-up">
+                        <div class="skill-card text-center">
+                            <div class="skill-icon"><i class="bi bi-code-slash"></i></div>
+                            <h4 class="skill-h4">Linguagens</h4>
+                            <span class="skill-badge">Python</span>
+                            <span class="skill-badge">JavaScript</span> <span class="skill-badge">SQL</span> <span
+                                class="skill-badge">Go</span> <span class="skill-badge">C</span>
+                            <span class="skill-badge">Bash</span>
+                        </div>
+                    </div>
+                    <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                        <div class="skill-card text-center">
+                            <div class="skill-icon"><i class="bi bi-server"></i></div>
+                            <h4 class="skill-h4">Infraestrutura & Dados</h4>
+                            <span class="skill-badge">Docker</span>
+                            <span class="skill-badge">Linux</span>
+                            <span class="skill-badge">AWS</span>
+                            <span class="skill-badge">Kubernetes</span>
+                            <span class="skill-badge">Apache Spark & Hive</span>
+                            <span class="skill-badge">MySQL</span>
+                        </div>
+                    </div>
+                    <div class="col-lg-4" data-aos="fade-up" data-aos-delay="400">
+                        <div class="skill-card text-center">
+                            <div class="skill-icon"><i class="bi bi-tools"></i></div>
+                            <h4 class="skill-h4">Ferramentas de Dev</h4>
+                            <span class="skill-badge">Git & GitHub</span>
+                            <span class="skill-badge">Práticas de CI/CD</span>
+                            <span class="skill-badge">Web Scraping</span>
+                            <span class="skill-badge">Pandas</span>
+                            <span class="skill-badge">HTML/CSS</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="languages" class="section back_arthur2">
+            <div class="container" data-aos="fade-up">
+                <h2 class="section-title">Idiomas</h2>
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <h6>Persa/Farsi (Fluente)</h6>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 100%;"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <h6>Inglês (Avançado/Fluente)</h6>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 90%;"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <h6>Português (Avançado)</h6>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 80%;"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <h6>Alemão (Intermediário)</h6>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 65%;"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <h6>Espanhol (Básico)</h6>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 15%;"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <h6>Italiano (Básico)</h6>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 10%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="section" style="background-color: var(--primary-color);">
+            <div class="container">
+                <h2 class="section-title">Projetos</h2>
+                <div class="row">
+                    <div class="col-md-4 col-lg-3 mb-3" data-aos="fade-up">
+                        <div class="card h-100">
+                            <div class="card-body d-flex flex-column">
+                                <h3 class="card-title project-titel">Lembrei!</h3>
+                                <p class="card-title">
+                                    Um aplicativo de lembretes projetado para auxiliar pessoas com TDAH, enviando notificações contextuais baseadas na localização do usuário para facilitar a organização de tarefas diárias.
+                                </p>
+                                <a href="https://github.com/Arthurbric/lembrei/tree/main"
+                                    class="btn btn-outline-primary mt-auto" target="_blank">Ver no GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-lg-3 mb-3" data-aos="fade-up" data-aos-delay="200">
+                        <div class="card h-100">
+                            <div class="card-body d-flex flex-column">
+                                <h3 class="card-title project-titel">Site de Feedback</h3>
+                                <p class="card-title">
+                                    Plataforma web para estudantes universitários fornecerem feedback construtivo e anônimo sobre professores, com moderação para garantir a qualidade das avaliações e promover melhorias no ensino.
+                                </p>
+                                <a href="https://github.com/Arthurbric/FeedBack_Site" class="btn btn-outline-primary mt-auto"
+                                    target="_blank">Ver no GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-lg-3 mb-3" data-aos="fade-up" data-aos-delay="400">
+                        <div class="card h-100">
+                            <div class="card-body d-flex flex-column">
+                                <h3 class="card-title project-titel">Museu Interativo em OpenGL</h3>
+                                <p class="card-title">
+                                    Museu virtual 3D desenvolvido em C com OpenGL, permitindo aos usuários explorar exposições, interagir com artefatos, rotacionar objetos e visualizar reflexos em uma experiência imersiva.
+                                </p>
+                                <a href="https://github.com/Arthurbric/Interactive-OpenGL-Museum" class="btn btn-outline-primary mt-auto"
+                                    target="_blank">Ver no GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-lg-3 mb-3" data-aos="fade-up" data-aos-delay="200">
+                        <div class="card h-100">
+                            <div class="card-body d-flex flex-column">
+                                <h3 class="card-title project-titel">Read Write 4 All</h3>
+                                <p class="card-title">
+                                   Plataforma web inclusiva para promover a alfabetização, com formulários interativos, instruções em áudio, tutoriais em vídeo e texto ajustável para garantir acessibilidade em dispositivos móveis e desktops.
+                                </p>
+                                <a href="https://github.com/Arthurbric/ReadWrite4All-Pi1" class="btn btn-outline-primary mt-auto"
+                                    target="_blank">Ver no GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-lg-3 mb-3" data-aos="fade-up" data-aos-delay="400">
+                        <div class="card h-100">
+                            <div class="card-body d-flex flex-column">
+                                <h3 class="card-title project-titel">EasyRent QuickCar</h3>
+                                <p class="card-title">
+                                    Plataforma full-stack de aluguel de carros com sistema seguro de login e reserva, backend em Python com MySQL e frontend responsivo, oferecendo uma experiência de aluguel intuitiva e completa.
+                                </p>
+                                <a href="https://github.com/Arthurbric/EasyRent_QuickCar" class="btn btn-outline-primary mt-auto"
+                                    target="_blank">Ver no GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-lg-3 mb-3" data-aos="fade-up" data-aos-delay="200">
+                        <div class="card h-100">
+                            <div class="card-body d-flex flex-column">
+                                <h3 class="card-title project-titel">Compilador em C</h3>
+                                <p class="card-title">
+                                    Compilador básico desenvolvido em C para implementar conceitos fundamentais de compilação, como análise léxica, sintática e geração de código, como um projeto acadêmico prático.
+                                </p>
+                                <a href="https://github.com/Arthurbric/Compiler_C" class="btn btn-outline-primary mt-auto"
+                                    target="_blank">Ver no GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-lg-3 mb-3" data-aos="fade-up" data-aos-delay="400">
+                        <div class="card h-100">
+                            <div class="card-body d-flex flex-column">
+                                <h3 class="card-title project-titel">Remake do Front-End do Airbnb</h3>
+                                <p class="card-title">
+                                    Recriação da interface do Airbnb com HTML, CSS e JavaScript, focando em design responsivo, elementos interativos e técnicas de layout modernas para replicar a plataforma de forma visualmente fiel e funcional.
+                                </p>
+                                <a href="https://github.com/Arthurbric/Airbnb_Front-End_Remake" class="btn btn-outline-primary mt-auto"
+                                    target="_blank">Ver no GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-lg-3 mb-3" data-aos="fade-up" data-aos-delay="400">
+                        <div class="card h-100 card-coming-soon">
+                            <div class="card-body d-flex flex-column text-center justify-content-center">
+                                <div class="wip-icon mb-3">
+                                    <i class="bi bi-tools"></i>
+                                </div>
+                                <h3 class="card-title project-titel">Novo Projeto em Andamento</h3>
+                                <p class="card-title px-2">
+                                    Estou desenvolvendo e buscando meu próximo projeto desafiador. Um novo estudo de caso estará disponível aqui em breve!
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="certifications" class="section back_arthur">
+            <div class="container">
+                <h2 class="section-title">Certificações e Formação</h2>
+                <div class="row justify-content-center">
+                    <div class="col-lg-8 mb-5" data-aos="fade-up">
+                        <div class="card p-4 text-center">
+                            <i class="bi bi-mortarboard-fill fs-1 text-primary"></i>
+                            <h3 class="card-title mt-2">Bacharelado em Ciência da Computação</h3>
+                            <p class="card-title mb-1" style="color: #c9d1d9;">Centro Universitário de Brasília (CEUB)</p>
+                            <p class="card-title mb-1" style="color: #c9d1d9;">Conclusão Prevista: Nov/Dez 2025</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title">Entre em Contato</h2>
+            <p class="lead">Estou aberto a novas oportunidades. Minha caixa de entrada está sempre disponível.</p>
+            <p><a href="mailto:arthurarash.bric@gmail.com" class="text-white">arthurarash.bric@gmail.com</a></p>
+            <div class="social-links mt-4">
+                <a href="https://www.linkedin.com/in/arthur-arash-briceno-heidari/" target="_blank" title="LinkedIn"><i
+                        class="bi bi-linkedin"></i></a>
+                <a href="https://github.com/arthurbric/" target="_blank" title="GitHub"><i class="bi bi-github"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+    </script>
+</body>
+
+</html>

@@ -1,260 +1,691 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Baixar Lembrei!</title>
-    <style>
-     
-        /* --- CSS Variables for Easy Theming --- */
-        :root {
-            --primary-color: #8A2BE2; /* BlueViolet */
-            --primary-hover: #720ebd;
-            /* --bg-color removido pois usaremos gradiente */
-            --card-bg: rgba(255, 255, 255, 0.95); /* Leve transparência para o fundo aparecer */
-            --text-color: #333333;
-            --text-secondary: #666666;
-            --shadow: 0 10px 30px rgba(0,0,0,0.1);
-            
-            /* NOVO: Gradiente Animado para o Modo Claro (Roxo/Azul/Rosa vibrante) */
-            --animated-bg: linear-gradient(-45deg, #8A2BE2, #2575fc, #da77f2, #6a11cb);
-        }
-
-        /* --- Dark Mode Variables --- */
-        body.dark-mode {
-            /* --bg-color removido */
-            --card-bg: rgba(30, 30, 30, 0.95); /* Leve transparência para o fundo aparecer */
-            --text-color: #e0e0e0;
-            --text-secondary: #aaaaaa;
-            --shadow: 0 10px 30px rgba(0,0,0,0.5);
-
-            /* NOVO: Gradiente Animado para o Modo Escuro (Tons profundos) */
-            --animated-bg: linear-gradient(-45deg, #1e1e2f, #3a1c71, #2c3e50, #000000);
-        }
-
-        /* --- Global Reset & Typography --- */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            /* Importante: removi a transição global de background-color para não travar a animação do gradiente */
-            transition: color 0.3s, border-color 0.3s; 
-        }
-
-        body {
-            /* MODIFICADO PARA O GRADIENTE */
-            background: var(--animated-bg);
-            background-size: 400% 400%; /* O fundo é 4x maior que a tela */
-            animation: gradientAnimation 15s ease infinite; /* Animação lenta e infinita */
-            
-            color: var(--text-color);
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-            align-items: center;
-            justify-content: center;
-            /* Transição suave apenas para quando troca o tema (as cores do gradiente) */
-            transition: background 0.5s ease; 
-        }
-
-        /* --- Header / Toggle Switch --- */
-        header {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            z-index: 10; /* Garante que fique acima do card */
-        }
-
-        .theme-toggle {
-            background: rgba(255,255,255,0.1); /* Fundo sutil para ler melhor sobre o gradiente */
-            border: 2px solid var(--primary-color);
-            color: var(--primary-color);
-            padding: 8px 16px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-weight: bold;
-            font-size: 0.9rem;
-            transition: background-color 0.3s, color 0.3s;
-            backdrop-filter: blur(5px);
-        }
-
-        .theme-toggle:hover {
-            background-color: var(--primary-color);
-            color: white;
-        }
-
-        /* --- Main Card --- */
-        .download-card {
-            background-color: var(--card-bg);
-            /* Adicionado um blur atrás do card para um efeito moderno "frosted glass" */
-            backdrop-filter: blur(10px); 
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: var(--shadow);
-            text-align: center;
-            max-width: 400px;
-            width: 90%;
-            animation: fadeIn 0.8s ease-out;
-            transition: background-color 0.3s, box-shadow 0.3s;
-        }
-
-        /* App Icon Placeholder */
-        .app-icon {
-            /* Removi o fundo roxo fixo já que você está usando uma imagem */
-            margin: 0 auto 20px auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        /* Estilo extra para sua imagem de ícone */
-        .app-icon img {
-            box-shadow: 0 8px 15px rgba(138, 43, 226, 0.3);
-            transition: transform 0.3s;
-        }
-        .app-icon img:hover {
-            transform: scale(1.05) rotate(5deg); /* Efeito legal ao passar o mouse no ícone */
-        }
-
-
-        h1 {
-            font-size: 1.8rem;
-            margin-bottom: 10px;
-        }
-
-        .tagline {
-            font-size: 1rem;
-            font-weight: 600;
-            color: var(--primary-color);
-            margin-bottom: 15px;
-            display: block;
-        }
-
-        p.description {
-            color: var(--text-secondary);
-            margin-bottom: 30px;
-            line-height: 1.5;
-        }
-
-        /* --- Download Button --- */
-        .download-btn {
-            display: inline-block;
-            background-color: var(--primary-color);
-            color: white;
-            padding: 15px 40px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-size: 1.1rem;
-            font-weight: bold;
-            box-shadow: 0 4px 15px rgba(138, 43, 226, 0.4);
-            transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
-        }
-
-        .download-btn:hover {
-            background-color: var(--primary-hover);
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(138, 43, 226, 0.6);
-        }
-
-        .download-btn:active {
-            transform: translateY(1px);
-        }
-
-        /* --- Meta Info (Size, Version) --- */
-        .meta-info {
-            margin-top: 25px;
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-        }
-
-        .meta-item {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        /* --- Animations --- */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* NOVA ANIMAÇÃO DO FUNDO */
-        @keyframes gradientAnimation {
-            0% {
-                background-position: 0% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
-            100% {
-                background-position: 0% 50%;
-            }
-        }
-
-    </style>
+    <title>Arthur Arash Briceno Heidari | Web Portfolio</title>
+    <link rel="apple-touch-icon" href="img/award.svg">
+    <link rel="shortcut icon" href="img/award.svg" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="Css/style.css">
 </head>
-<body>
 
-    <header>
-        <button class="theme-toggle" onclick="toggleTheme()">🌙 Night Mode</button>
+<body data-bs-spy="scroll" data-bs-target="#mainNavbar" data-bs-offset="80" tabindex="0">
+
+    <nav id="mainNavbar" class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="https://www.linkedin.com/in/arthur-arash/" target="_blank">Arthur A. B.
+                Heidari</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#certifications">Certifications</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    <li class="nav-item lang-switch d-flex align-items-center ms-lg-3">
+                        <a href="pt_br.html"><i class="bi bi-translate me-1"></i>PT-BR</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero" id="about">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-7 text-center text-lg-start">
+                    <p class="lead">Computer Science Student</p>
+                    <h1 data-aos="fade-right">Arthur Arash Briceno Heidari</h1>
+                    <p data-aos="fade-right" data-aos-delay="200" class="my-4">
+                        Solutions-focused professional with a diverse background in technology, data, and customer
+                        service.
+                        Currently interning as a Solutions Architect at SUSE, with a proven ability to collaborate with
+                        cross-functional teams,
+                        design effective software solutions, and learn quickly.
+                        Eager to leverage a strong technical foundation and transferable skills in a new role.
+                        I am driven by a passion for continuous learning and am committed to pursuing a Bachelor's
+                        degree in Finance to expand my expertise in the future.
+                    </p>
+                    <p data-aos="fade-right" data-aos-delay="200" class="my-4">
+                        Solutions-focused student specializing in
+                        data engineering and full-stack development, passionate about using
+                        technology to solve complex
+                        challenges.
+                    </p>
+
+                    <div data-aos="fade-up" data-aos-delay="400">
+                        <a href="#projects" class="btn btn-primary btn-lg">View My Work</a>
+                        <a href="Resume/En-ArthurHeidari-CV.pdf" class="btn btn-outline-light btn-lg"
+                            download>
+                            <i class="bi bi-download me-2"></i>
+                            Download Resume
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-5 text-center mt-5 mt-lg-0">
+                    <img src="img/arthur_link.jpeg" alt="Arthur Arash Briceno Heidari" class="profile-photo img-fluid"
+                        data-aos="fade-left">
+                </div>
+            </div>
+        </div>
     </header>
 
-    <main class="download-card">
-        <div class="app-icon">
-             <img src="icon.png" alt="App Logo" style="width:100px; border-radius:22px;">
-        </div>
+    <main>
+        <section id="experience" class="section back_arthur">
+            <div class="container">
+                <h2 class="section-title">Professional Experience</h2>
+                <div class="timeline">
+                    <div class="timeline-container right" data-aos="fade-left">
+                        <div class="timeline-content">
+                            <h5>Intern as a Solution Architect (Pre-Sales)</h5>
+                            <p class="card-text "><i class="bi bi-calendar3"></i> Jan 2024 - Present</p>
+                            <p><strong>SUSE Linux</strong></p>
+                            <ul>
+                                <li>Collaborate with cross-functional teams to design effective software solutions.</li>
+                                <li>Contribute to the creation and documentation of solution architectures. </li>
+                                <li>Assist in the evaluation of technologies and work on proof-of-concept projects.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="timeline-container left" data-aos="fade-right">
+                        <div class="timeline-content">
+                            <h5>Data Engineer</h5>
+                            <p class="card-text"><i class="bi bi-calendar3"></i> Jul 2023 - Jan 2024</p>
+                            <p><strong>PGFN</strong></p>
+                            <p>Skilled in harnessing Big Data and Data Lake technologies, using Python,
+                                Selenium, and SQL for web scraping and data extraction.
+                                Collaborated effectively with cross-functional teams.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="timeline-container right" data-aos="fade-left">
+                        <div class="timeline-content">
+                            <h5>Teacher Assistant and Monitoring Representative</h5>
+                            <p class="card-text"><i class="bi bi-calendar3"></i> Jan 2022 - Present</p>
+                            <p><strong>Centro Universitário de Brasília (CEUB)</strong> </p>
+                            <p>
+                                Coordinated crash courses in Linux, Python, and C.
+                                Tutored students one-on-one and managed the computer laboratory.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="timeline-container left" data-aos="fade-right">
+                        <div class="timeline-content">
+                            <h5>Board Game Restaurant Host & Waiter (Freelance)</h5>
+                            <p class="card-text"><i class="bi bi-calendar3"></i> May 2022 - Present</p>
+                            <p><strong>Café Ludique Carcassonne Pub</strong> </p>
+                            <p>Welcomed guests, managed orders, and guided them through an extensive library
+                                of board games. Honed communication and multitasking skills in a
+                                high-energy environment.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="timeline-container right" data-aos="fade-left">
+                        <div class="timeline-content">
+                            <h5>Professional Bilingual Waiter</h5>
+                            <p class="card-text"><i class="bi bi-calendar3"></i> Aug 2017 - Nov 2018</p>
+                            <p>
+                                <strong>leon1960</strong>
+                            </p>
+                            <p>Delivered exceptional service in a luxurious, high-end restaurant to a
+                                diverse clientele. Trained in fine dining etiquette to ensure
+                                every detail met the highest standards.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <h1>Lembrei!</h1>
-        
-        <span class="tagline">Lembrar não deveria ser mais difícil que a tarefa.</span>
+        <section id="skills" class="section" style="background-color: var(--primary-color);">
+            <div class="container">
+                <h2 class="section-title">Technical Skills</h2>
+                <div class="row g-4">
+                    <div class="col-lg-4" data-aos="fade-up">
+                        <div class="skill-card text-center h-100">
+                            <div class="skill-icon"><i class="bi bi-code-slash"></i></div>
+                            <h4 class="skill-h4">Languages</h4>
+                            <span class="skill-badge">Python</span>
+                            <span class="skill-badge">JavaScript</span> <span class="skill-badge">SQL</span> <span
+                                class="skill-badge">Go</span> <span class="skill-badge">C</span>
+                            <span class="skill-badge">Bash</span>
+                        </div>
+                    </div>
+                    <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                        <div class="skill-card text-center">
+                            <div class="skill-icon"><i class="bi bi-server"></i></div>
+                            <h4 class="skill-h4">Infrastructure & Data</h4>
+                            <span class="skill-badge">Docker</span>
+                            <span class="skill-badge">Linux</span>
+                            <span class="skill-badge">AWS</span>
+                            <span class="skill-badge">Kubernetes</span>
+                            <span class="skill-badge">Apache Spark & Hive</span>
+                            <span class="skill-badge">MySQL</span>
+                        </div>
+                    </div>
+                    <div class="col-lg-4" data-aos="fade-up" data-aos-delay="400">
+                        <div class="skill-card text-center">
+                            <div class="skill-icon"><i class="bi bi-tools"></i></div>
+                            <h4 class="skill-h4">Developer Tools</h4>
+                            <span class="skill-badge">Git & GitHub</span>
+                            <span class="skill-badge">CI/CD Practices</span>
+                            <span class="skill-badge">Web Scraping</span>
+                            <span class="skill-badge">Pandas</span>
+                            <span class="skill-badge">HTML/CSS</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <p class="description">
-            O Lembrei é um app de lembretes inteligentes.
-            Diferente das listas comuns, nós usamos sua <strong>localização</strong> para facilitar suas idas ao mercado.
-            Receba o aviso certo, na hora e no lugar certo.
-        </p>
+        <section id="languages" class="section back_arthur2">
+            <div class="container" data-aos="fade-up">
+                <h2 class="section-title">Spoken Languages</h2>
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <h6>Persian/Farsi (Fluent)</h6>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 100%;"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <h6>English (Advanced/Fluent)</h6>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 90%;"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <h6>Portuguese (Advanced)</h6>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 80%;"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <h6>German (Intermediate)</h6>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 65%;"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <h6>Spanish (Basic)</h6>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 15%;"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <h6>Italian (Basic)</h6>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 10%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <a href="https://expo.dev/artifacts/eas/qaXhRb6BJv2ZzGhf1ChBG3.apk" class="download-btn" download>
-            Baixar o App (APK)
-        </a>
+        <section id="projects" class="section" style="background-color: var(--primary-color);">
+            <div class="container">
+                <h2 class="section-title">Projects</h2>
+                <div class="row">
 
-        <div class="meta-info">
-            <span class="meta-item">Versão 1.0</span>
-            <span class="meta-item">•</span>
-            <span class="meta-item">Grátis e Open Source</span>
-        </div>
+
+                    <!-- Limbrei (1) -->
+                    <div class="col-md-4 col-lg-3 mb-3" data-aos="fade-up">
+                        <div class="card h-100">
+                            <div class="card-body d-flex flex-column">
+                                <h3 class="card-title project-titel">Lembrei!</h3>
+                                <p class="card-title">
+                                    Developed Lembrei!, a reminder app designed to assist individuals with ADHD by
+                                    sending contextual notifications based on user location. Helps users stay organized,
+                                    manage daily tasks effectively, and improve productivity through timely reminders.
+                                </p>
+                                <a href="https://github.com/Arthurbric/lembrei/tree/main"
+                                    class="btn btn-outline-primary mt-auto" target="_blank">View on GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FeedBack_site (2) -->
+                    <div class="col-md-4 col-lg-3 mb-3" data-aos="fade-up" data-aos-delay="200">
+                        <div class="card h-100">
+                            <div class="card-body d-flex flex-column">
+                                <h3 class="card-title project-titel">FeedBack Site</h3>
+                                <p class="card-title">
+                                    Developed a web platform for university students to provide
+                                    constructive and anonymous feedback on professors. Implemented moderation to ensure
+                                    quality of reviews, promote teaching improvements, and foster transparent
+                                    communication between students and faculty.
+
+                                </p>
+                                <a href="https://github.com/Arthurbric/FeedBack_Site"
+                                    class="btn btn-outline-primary mt-auto" target="_blank">View on GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Interactive OpenGL Museum(3) -->
+                    <div class="col-md-4 col-lg-3 mb-3" data-aos="fade-up" data-aos-delay="400">
+                        <div class="card h-100">
+                            <div class="card-body d-flex flex-column">
+                                <h3 class="card-title project-titel">OpenGL Museum</h3>
+                                <p class="card-title">
+                                    Developed an interactive 3D OpenGL Museum in C, where users can walk through
+                                    exhibits, interact with artefacts, rotate 3D objects, and view real-time
+                                    reflections. Applied mathematical modeling, matrix transformations, and OpenGL
+                                    rendering techniques to deliver an immersive and educational virtual museum
+                                    experience.
+                                </p>
+                                <a href="https://github.com/Arthurbric/Interactive-OpenGL-Museum"
+                                    class="btn btn-outline-primary mt-auto" target="_blank">View on GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 2gather(4) -->
+                    <div class="col-md-4 col-lg-3 mb-3" data-aos="fade-up">
+                        <div class="card h-100">
+                            <div class="card-body d-flex flex-column">
+                                <h3 class="card-title project-titel">2Gather</h3>
+                                <p class="card-title">
+                                    Developed 2Gather, an event platform connecting organizers with venues and equipment
+                                    providers. Users can easily book spaces, rent sound systems, lighting, and
+                                    decorations in one place, streamlining event planning and management for a seamless
+                                    experience.
+                                </p>
+                                <a href="https://github.com/Arthurbric/2Gather-Pi1"
+                                    class="btn btn-outline-primary mt-auto" target="_blank">View on GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Read Write 4 All(5) -->
+                    <div class="col-md-4 col-lg-3 mb-3" data-aos="fade-up" data-aos-delay="200">
+                        <div class="card h-100">
+                            <div class="card-body d-flex flex-column">
+                                <h3 class="card-title project-titel">Read Write 4 All</h3>
+                                <p class="card-title">
+                                    Developed Read Write 4 All, an inclusive web platform to promote literacy for
+                                    individuals with limited reading and writing skills. Designed interactive multimedia
+                                    forms with audio instructions, video tutorials, adjustable text, and accessibility
+                                    features (ARIA, keyboard navigation) for a user-friendly experience across devices.
+                                </p>
+                                <a href="https://github.com/Arthurbric/ReadWrite4All-Pi1"
+                                    class="btn btn-outline-primary mt-auto" target="_blank">View on GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- EasyRent QuickCar(6) -->
+                    <div class="col-md-4 col-lg-3 mb-3" data-aos="fade-up" data-aos-delay="400">
+                        <div class="card h-100">
+                            <div class="card-body d-flex flex-column">
+                                <h3 class="card-title project-titel">EasyRent QuickCar</h3>
+                                <p class="card-title">
+                                    Developed EasyRent QuickCar, a full-stack car rental platform with secure login and
+                                    booking features. Built the backend in Python with MySQL for data management and
+                                    created a responsive frontend using HTML and CSS. Implemented user authentication,
+                                    car listings, and booking management, delivering an innovative and seamless rental
+                                    experience.
+
+                                </p>
+                                <a href="https://github.com/Arthurbric/EasyRent_QuickCar"
+                                    class="btn btn-outline-primary mt-auto" target="_blank">View on GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CineMatch(7) -->
+                    <div class="col-md-4 col-lg-3 mb-3" data-aos="fade-up">
+                        <div class="card h-100">
+                            <div class="card-body d-flex flex-column">
+                                <h3 class="card-title project-titel">CineMatch</h3>
+                                <p class="card-title">
+                                    Developed CineMatch, a social platform where users swipe to like or dislike movies,
+                                    similar to a dating app. Designed a matching system connecting users with shared
+                                    film interests and implemented personalized recommendations to enhance engagement
+                                    and discoverability of films.
+                                </p>
+                                <a href="https://github.com/arthurbric/CineMatch"
+                                    class="btn btn-outline-primary mt-auto" target="_blank">View on GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Compiler C(8) -->
+                    <div class="col-md-4 col-lg-3 mb-3" data-aos="fade-up" data-aos-delay="200">
+                        <div class="card h-100">
+                            <div class="card-body d-flex flex-column">
+                                <h3 class="card-title project-titel">Compiler in C</h3>
+                                <p class="card-title">
+                                    Developed a web platform enabling students and staff to quickly report campus
+                                    incidents. Added categorized reporting, real-time alerts, and an intuitive interface
+                                    to help the university respond efficiently to accidents, harassment, theft,
+                                    infrastructure issues, and other problems, improving safety and communication.
+                                </p>
+                                <a href="https://github.com/Arthurbric/Compiler_C"
+                                    class="btn btn-outline-primary mt-auto" target="_blank">View on GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Invitation-Card(9) -->
+                    <div class="col-md-4 col-lg-3 mb-3" data-aos="fade-up" data-aos-delay="400">
+                        <div class="card h-100">
+                            <div class="card-body d-flex flex-column">
+                                <h3 class="card-title project-titel">Digital Graduation Invite</h3>
+                                <p class="card-title">
+                                    Developed a Digital Graduation Invitation with an interactive and elegant front-end
+                                    design. Integrated maps (Waze, Google Maps) for location guidance and a responsive
+                                    RSVP feature, allowing attendees to confirm attendance with a single click,
+                                    enhancing user experience and simplifying event coordination.
+
+                                </p>
+                                <a href="https://github.com/Arthurbric/Invitation-Card"
+                                    class="btn btn-outline-primary mt-auto" target="_blank">View on GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Occurrence Report CEUB(10) -->
+                    <div class="col-md-4 col-lg-3 mb-3" data-aos="fade-up" data-aos-delay="400">
+                        <div class="card h-100">
+                            <div class="card-body d-flex flex-column">
+                                <h3 class="card-title project-titel">Occurrence Report CEUB</h3>
+                                <p class="card-title">
+                                    Developed Occurrence Report CEUB, a web platform for students and staff to quickly
+                                    report campus incidents. Implemented categorized reporting, real-time alerts, and an
+                                    intuitive interface, enabling the university to respond efficiently to accidents,
+                                    harassment, theft, and infrastructure problems.
+
+                                </p>
+                                <a href="https://github.com/Arthurbric/Occurrence-Report-CEUB"
+                                    class="btn btn-outline-primary mt-auto" target="_blank">View on GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Airbnb Front-End Remake(11) -->
+                    <div class="col-md-4 col-lg-3 mb-3" data-aos="fade-up" data-aos-delay="400">
+                        <div class="card h-100">
+                            <div class="card-body d-flex flex-column">
+                                <h3 class="card-title project-titel">Airbnb Front-End Remake</h3>
+                                <p class="card-title">
+                                    Recreated Airbnb’s interface using HTML, CSS, and JavaScript with a focus on
+                                    responsive design, interactive features, and modern layout practices. Built a
+                                    visually accurate and user-friendly replica of the platform, strengthening front-end
+                                    development skills while applying industry-standard techniques for web design and
+                                    usability.
+
+                                </p>
+                                <a href="https://github.com/Arthurbric/Airbnb_Front-End_Remake"
+                                    class="btn btn-outline-primary mt-auto" target="_blank">View on GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- (12) Cooming soon CSS-->
+                    <div class="col-md-4 col-lg-3 mb-3" data-aos="fade-up" data-aos-delay="400">
+                        <div class="card h-100 card-coming-soon">
+                            <div class="card-body d-flex flex-column text-center justify-content-center">
+
+                                <div class="wip-icon mb-3">
+                                    <i class="bi bi-tools"></i>
+                                </div>
+
+                                <h3 class="card-title project-titel">New Project in Progress</h3>
+
+                                <p class="card-title px-2">
+                                    I'm currently developing and searching for my next exciting project. A new case
+                                    study will be live here soon!
+                                </p>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="certifications" class="section back_arthur">
+            <div class="container">
+                <h2 class="section-title">Certifications & Education</h2>
+                <div class="row justify-content-center">
+                    <div class="col-lg-8 mb-5" data-aos="fade-up">
+                        <div class="card p-4 text-center">
+                            <i class="bi bi-mortarboard-fill fs-1 text-primary"></i>
+                            <h3 class="card-title mt-2">Bachelor of Computer Science</h3>
+                            <p class="card-title mb-1" style="color: #c9d1d9;">Centro Universitário de Brasília (CEUB)
+                            </p>
+                            <p class="card-title mb-1" style="color: #c9d1d9;">Expected Graduation: Nov/Dec 2025</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+
+                    <!-- SCA(1) -->
+                    <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up">
+
+                        <div class="card text-center h-100 p-3 card-link-wrapper">
+                            <img src="Certifications/PNG-Certification/SCA_SLES15.jpg" class="card-img-top" alt="...">
+
+                            <div class="card-body">
+                                <!-- <div class="card-icon fs-1">
+                                    <i class="bi bi-patch-check-fill"></i>
+                                </div> -->
+                                <h5 class="card-title mt-2">SCA(SUSE Certified Administrator) in SUSE Linux Enterprise
+                                    Server 15</h5>
+                                <p class="card-text ">
+                                    Family/Last Name: Briceño Heidari <br>
+                                    Certification: 4776 <br>
+                                    Effective Date: 2024-12-29
+                                </p>
+
+                                <div class="row text-center">
+                                    <a href="https://badges.suse.com/07963b51-e782-44ff-8401-fdadf02c2b21#acc.JVoZiC7H"
+                                        class="btn btn-primary col" target="_blank">
+                                        Formal Certificate
+                                    </a>
+                                    <a href="https://suse.useclarus.com/view/verify/" class="btn btn-primary col"
+                                        target="_blank">
+                                        Verify Certification
+                                    </a>
+                                </div>
+
+                                <a href="Certifications/En-Certifications/SCA_SLES154776.pdf"
+                                    class="btn btn-outline-light" download target="_blank">
+                                    <i class="bi bi-download me-2"></i>Download The Certification
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- SUMA(2) -->
+                    <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+
+                        <div class="card text-center h-100 p-3 card-link-wrapper">
+                            <img src="Certifications/PNG-Certification/SCA_SUMA.jpg" class="card-img-top" alt="...">
+
+                            <div class="card-body">
+                                <!-- <div class="card-icon fs-1">
+                                    <i class="bi bi-patch-check-fill"></i>
+                                </div> -->
+                                <h5 class="card-title mt-2">SCA(SUSE Certified Administrator) in SUSE Manager 4</h5>
+                                <p class="card-text ">
+                                    Family/Last Name: Briceño Heidari <br>
+                                    Certification: 2296 <br>
+                                    Effective Date: 2025-04-27
+                                </p>
+
+                                <div class="row text-center">
+                                    <a href="https://badges.suse.com/6a4d0e61-16a9-4b4a-82dd-5649a1297887#acc.nEpJ4svf"
+                                        class="btn btn-primary col" target="_blank">
+                                        Formal Certificate
+                                    </a>
+                                    <a href="https://suse.useclarus.com/view/verify/" class="btn btn-primary col "
+                                        target="_blank">
+                                        Verify Certification
+                                    </a>
+                                </div>
+
+                                <a href="Certifications/En-Certifications/SCA_SUMA42296.pdf"
+                                    class="btn btn-outline-light" download target="_blank">
+                                    <i class="bi bi-download me-2"></i>Download The Certification
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- GIT(3) + add "d-flex flex-column justify-content-center" -->
+                    <div class="col-md-6 col-lg-4 mb-4 " data-aos="fade-up" data-aos-delay="100">
+
+                        <div class="card text-center h-100 p-3 card-link-wrapper ">
+                            <!-- <embed class="card-img-top h-50"
+                                src="Certifications/En-Certifications/Arthur Arash - Course Git and GitHub_ sharing and collaborating on projects - Alura.pdf"
+                                type="application/pdf" width="100%" /> -->
+                            <!-- <object class="card-img-top h-50" data="Certifications/En-Certifications/Arthur Arash - Course Git and GitHub_ sharing and collaborating on projects - Alura.pdf" type="" ></object> -->
+                            <img src="Certifications/PNG-Certification/Git_GitHub.jpg" class="card-img-top" alt="...">
+
+                            <div class="card-body h-50 d-flex flex-column justify-content-center">
+                                <!-- <div class="card-icon fs-1">
+                                    <i class="bi bi-patch-check-fill"></i>
+                                </div> -->
+                                <h5 class="card-title mt-2">
+                                    Git e GitHub: compartilhando e colaborando em projetos
+                                </h5>
+                                <p class="card-text ">Alura, 2025 (8 hours)</p>
+
+                                <a href="https://cursos.alura.com.br/user/arthurarash-bric/course/linux-gerenciando-diretorios-arquivos-permissoes-processos/formalCertificate"
+                                    class="btn btn-primary " target="_blank">
+                                    Formal Certificate
+                                </a>
+
+                                <a href="Certifications/En-Certifications/Arthur Arash - Course Git and GitHub_ sharing and collaborating on projects - Alura.pdf"
+                                    class="btn btn-outline-light" download target="_blank">
+                                    <i class="bi bi-download me-2"></i>Download The Certification
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+
+                    <!-- Docker(4) -->
+                    <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+
+                        <div class="card text-center h-100 p-3 card-link-wrapper">
+                            <img src="Certifications/PNG-Certification/Docker.jpg" class="card-img-top" alt="...">
+
+                            <!-- <img src="Certifications/En-Certifications/Arthur Arash - Course Docker_ creating and managing containers - Alura.pdf"
+                                class="card-img-top" alt="..."> -->
+                            <div class="card-body">
+                                <!-- <div class="card-icon fs-1">
+                                    <i class="bi bi-patch-check-fill"></i>
+                                </div> -->
+                                <h5 class="card-title mt-2">Docker: Creating and Managing Containers</h5>
+                                <p class="card-text ">Alura, 2024 (12 hours)</p>
+
+                                <a href="https://cursos.alura.com.br/certificate/1fb39b4d-8ad7-4600-96f4-be36f30405ae?lang=en"
+                                    class="btn btn-primary" target="_blank">
+                                    Formal Certificate
+                                </a>
+
+                                <a href="Certifications/En-Certifications/Arthur Arash - Course Docker_ creating and managing containers - Alura.pdf"
+                                    class="btn btn-outline-light" download target="_blank">
+                                    <i class="bi bi-download me-2"></i>Download The Certification
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Linux (5) -->
+                    <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+
+                        <div class="card text-center h-100 p-3 card-link-wrapper">
+                            <img src="Certifications/PNG-Certification/Linux.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <!-- <div class="card-icon fs-1">
+                                    <i class="bi bi-patch-check-fill"></i>
+                                </div> -->
+                                <h5 class="card-title mt-2">
+                                    Linux: managing directories, files, permissions, and processes
+                                </h5>
+                                <p class="card-text ">Alura, 2025 (8 hours)</p>
+
+                                <a href="https://cursos.alura.com.br/certificate/0a783fd2-0377-4bc8-9cbf-aba6e8f875a7?lang=en"
+                                    class="btn btn-primary" target="_blank">
+                                    Formal Certificate
+                                </a>
+
+                                <a href="Certifications/En-Certifications/Arthur Arash - Course Linux_ managing directories, files, permissions, and processes - Alura.pdf"
+                                    class="btn btn-outline-light" download target="_blank">
+                                    <i class="bi bi-download me-2"></i>Download The Certification
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- (6) -->
+                    <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+
+                        <div class="card text-center h-100 p-3 card-coming-soon">
+                            <div class="card-body d-flex flex-column justify-content-center align-items-center">
+
+                                <div class="wip-icon mb-3">
+                                    <i class="bi bi-patch-check-fill"></i>
+                                </div>
+
+                                <h4 class="card-title mt-2">New Certification in Progress</h4>
+
+                                <p class="card-title px-2">
+                                    Always learning. My next certification will be displayed here as soon as it's
+                                    completed!
+                                </p>
+
+
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+        </section>
     </main>
 
+    <footer id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <p class="lead">I'm currently seeking new opportunities. My inbox is always open.</p>
+            <p><a href="mailto:arthurarash.bric@gmail.com" class="email">arthurarash.bric@gmail.com</a></p>
+            <div class="social-links mt-4">
+                <a href="https://www.linkedin.com/in/arthur-arash-briceno-heidari/" target="_blank" title="LinkedIn"><i
+                        class="bi bi-linkedin"></i></a>
+                <a href="https://github.com/arthurbric/" target="_blank" title="GitHub"><i class="bi bi-github"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // Check for saved user preference, if any, on load
-        const currentTheme = localStorage.getItem('theme');
-        if (currentTheme) {
-            document.body.classList.add(currentTheme);
-            if (currentTheme === 'dark-mode') {
-                document.querySelector('.theme-toggle').textContent = '☀️ Day Mode';
-            }
-        }
-
-        function toggleTheme() {
-            const body = document.body;
-            const btn = document.querySelector('.theme-toggle');
-            
-            body.classList.toggle('dark-mode');
-
-            if (body.classList.contains('dark-mode')) {
-                btn.textContent = '☀️ Day Mode';
-                localStorage.setItem('theme', 'dark-mode');
-            } else {
-                btn.textContent = '🌙 Night Mode';
-                localStorage.setItem('theme', 'light-mode');
-            }
-        }
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true
+        });
     </script>
-
 </body>
+
 </html>

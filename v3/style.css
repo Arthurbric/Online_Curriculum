@@ -440,7 +440,7 @@ body::before {
 }
 
 .hero__name {
-    font-size: clamp(2.7rem, 11.5vw, 9.5rem);
+    font-size: clamp(2.7rem, 8.5vw, 9.5rem);
     font-weight: 500;
     letter-spacing: -.045em;
     line-height: .88;
@@ -1643,7 +1643,7 @@ body::before {
 }
 .hero__chip--a { left: -26px; top: 14%; background: var(--c2); }
 .hero__chip--b { right: -14px; top: 46%; background: var(--c1); animation-delay: -1.6s; }
-.hero__chip--c { left: 6%; bottom: -12px; background: var(--c3); color: #111; animation-delay: -3s; }
+.hero__chip--c { left: 6%; bottom: 12%; background: var(--c3); color: #111; animation-delay: -3s; }
 @keyframes spin { to { transform: rotate(360deg); } }
 @keyframes blob {
     to { border-radius: 56% 44% 52% 48% / 44% 56% 44% 56%; }

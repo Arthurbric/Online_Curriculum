@@ -387,7 +387,7 @@ h4 {
     content: "";
     position: absolute;
     inset: 0 0 auto 0;
-    height: 1px;
+    height: 2px;
     background: linear-gradient(90deg, transparent, var(--cyan), transparent);
     opacity: .7;
 }

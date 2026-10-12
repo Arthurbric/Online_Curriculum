@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arthur Arash Briceño Heidari</title>
+    <meta name="description" content="Arquiteto de Soluções e Pré-vendas Técnicas em Cloud (GCP) e IA Generativa.">
+    <link rel="icon" href="/img/award.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script>
+        (function () {
+            try {
+                var t = localStorage.getItem('aa-theme');
+                if (!t) t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+                document.documentElement.setAttribute('data-theme', t);
+            } catch (e) { }
+        })();
+    </script>
+</head>
+
+<body>
+    <a class="skip-link" href="#main">Pular para o conteúdo</a>
+
+    <div class="mesh" aria-hidden="true">
+        <span class="blob blob--1"></span>
+        <span class="blob blob--2"></span>
+        <span class="blob blob--3"></span>
+    </div>
+    <div class="noise" aria-hidden="true"></div>
+
+    <header class="bar">
+        <a class="bar__brand" href="#top">
+            <span class="bar__blob" aria-hidden="true"></span>
+            <span data-slot="shortName"></span>
+        </a>
+
+        <nav class="bar__nav" aria-label="Navegação principal">
+            <ul data-slot="nav"></ul>
+        </nav>
+
+        <div class="bar__tools">
+            <button class="rbtn" id="langBtn" type="button" aria-label="Mudar idioma">
+                <span data-slot="langLabel">EN</span>
+            </button>
+            <button class="rbtn rbtn--icon" id="themeBtn" type="button" aria-label="Alternar tema">
+                <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+                    <circle cx="12" cy="12" r="4.2" />
+                    <path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.2 5.2l1.6 1.6M17.2 17.2l1.6 1.6M18.8 5.2l-1.6 1.6M6.8 17.2l-1.6 1.6" />
+                </svg>
+                <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M20 14.2A8.2 8.2 0 0 1 9.8 4a8.3 8.3 0 1 0 10.2 10.2Z" />
+                </svg>
+            </button>
+            <button class="burger" id="burger" type="button" aria-label="Menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <main id="main">
+        <!-- ============ HERO ============ -->
+        <section class="hero" id="top">
+            <div class="wrap">
+                <figure class="hero__photo">
+                    <span class="hero__ring" aria-hidden="true"></span>
+                    <img data-slot="photo" src="" alt="" width="420" height="520" loading="eager">
+                    <span class="hero__chip hero__chip--a" aria-hidden="true">GCP</span>
+                    <span class="hero__chip hero__chip--b" aria-hidden="true">GenAI</span>
+                    <span class="hero__chip hero__chip--c" aria-hidden="true">K8s</span>
+                </figure>
+                <p class="hero__badge">
+                    <span class="hero__ping" aria-hidden="true"></span>
+                    <span data-slot="location"></span>
+                </p>
+
+                <h1 class="hero__name" data-slot="name"></h1>
+
+                <p class="hero__role">
+                    <span data-slot="headline"></span>
+                    <em class="hero__rotator" data-slot="rotator" aria-live="polite"></em>
+                </p>
+
+                <div class="hero__bottom">
+                    <p class="hero__sum" data-slot="summary"></p>
+
+                    <div class="hero__actions">
+                        <a class="btn btn--solid" href="#projects" data-slot="ctaPrimary"></a>
+                        <a class="btn btn--ghost" id="resumeLink" href="#" download data-slot="ctaSecondary"></a>
+                        <ul class="hero__links" data-slot="links"></ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="marquee" aria-hidden="true">
+                <div class="marquee__track" data-slot="marquee"></div>
+            </div>
+        </section>
+
+        <!-- ============ EXPERIÊNCIA ============ -->
+        <section class="section" id="experience">
+            <div class="wrap">
+                <header class="shead">
+                    <span class="shead__num">01</span>
+                    <h2 data-slot="sec-experience"></h2>
+                </header>
+
+                <div class="cards" data-slot="experience"></div>
+
+                <div class="other">
+                    <button class="disclosure" id="otherBtn" type="button" aria-expanded="false" aria-controls="otherPanel">
+                        <span class="disclosure__sign" aria-hidden="true"></span>
+                        <span data-slot="otherToggle"></span>
+                    </button>
+                    <div class="other__panel" id="otherPanel" hidden>
+                        <p class="other__note" data-slot="otherNote"></p>
+                        <div class="other__grid" data-slot="otherExperience"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ COMPETÊNCIAS ============ -->
+        <section class="section" id="skills">
+            <div class="wrap">
+                <header class="shead">
+                    <span class="shead__num">02</span>
+                    <h2 data-slot="sec-skills"></h2>
+                </header>
+
+                <div class="bubbles" data-slot="competencies"></div>
+
+                <div class="stacks" data-slot="skills"></div>
+
+                <div class="langs">
+                    <h3 class="sub" data-slot="sec-languages"></h3>
+                    <div class="langs__grid" data-slot="languages"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ PROJETOS ============ -->
+        <section class="section" id="projects">
+            <div class="wrap">
+                <header class="shead">
+                    <span class="shead__num">03</span>
+                    <h2 data-slot="sec-projects"></h2>
+                </header>
+                <div class="work" data-slot="projects"></div>
+            </div>
+        </section>
+
+        <!-- ============ CERTIFICAÇÕES ============ -->
+        <section class="section" id="certifications">
+            <div class="wrap">
+                <header class="shead">
+                    <span class="shead__num">04</span>
+                    <h2 data-slot="sec-certifications"></h2>
+                </header>
+
+                <h3 class="sub" data-slot="sec-education"></h3>
+                <div class="edu" data-slot="education"></div>
+
+                <div class="certs" data-slot="certifications"></div>
+                <p class="courses" data-slot="otherCourses"></p>
+            </div>
+        </section>
+    </main>
+
+    <!-- ============ CONTATO ============ -->
+    <footer class="footer" id="contact">
+        <div class="wrap">
+            <span class="shead__num">05</span>
+            <h2 class="footer__title" data-slot="sec-contact"></h2>
+            <p class="footer__lead" data-slot="contactLead"></p>
+            <a class="footer__mail" id="mailLink" href="#"></a>
+            <ul class="footer__links" data-slot="footerLinks"></ul>
+            <p class="footer__note">
+                <span data-slot="footerNote"></span>
+                <a href="#top" data-slot="backToTop"></a>
+            </p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+
+</html>

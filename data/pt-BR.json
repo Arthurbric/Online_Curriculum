@@ -1,0 +1,634 @@
+{
+  "meta": {
+    "lang": "pt-BR",
+    "htmlLang": "pt-BR",
+    "title": "Arthur Arash Briceño Heidari | Arquiteto de Soluções",
+    "description": "Arquiteto de Soluções e Pré-vendas Técnicas em Cloud (GCP) e IA Generativa. Portfólio, experiência, certificações e projetos.",
+    "switchTo": {
+      "code": "en",
+      "label": "EN",
+      "full": "English"
+    }
+  },
+  "profile": {
+    "name": "Arthur Arash Briceño Heidari",
+    "shortName": "Arthur Arash",
+    "initials": "AA",
+    "headline": "Arquiteto de Soluções · Pré-vendas Técnicas",
+    "tagline": "Cloud (GCP) & IA Generativa",
+    "rotatingWords": [
+      "Arquiteto de Soluções",
+      "Pré-vendas Técnicas",
+      "Cloud (GCP)",
+      "IA Generativa",
+      "Kubernetes"
+    ],
+    "location": "Brasília – DF, Brasil",
+    "email": "arthurarash.bric@gmail.com",
+    "phone": "+55 (61) 98624-1548",
+    "photo": "/img/Arthur_Arash.png",
+    "resume": "/Resume/ArthurHeidari-CV.pdf",
+    "summary": "Arquiteto de Soluções e profissional de Pré-vendas Técnicas com histórico de acelerar ciclos de venda complexos nos setores público e privado, unindo Cloud (GCP), IA Generativa e estratégia comercial. Desenho e apresento PoCs e demos técnicas que engajam stakeholders C-Level, e estruturo propostas comerciais e Account Plans orientados por IA que apoiam o avanço de oportunidades.",
+    "summarySecondary": "Base técnica sólida em SUSE Linux, Rancher, Kubernetes, Docker, Python e SQL, complementada por experiência em ensino técnico e comunicação bilíngue.",
+    "links": [
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/arthur-arash/",
+        "icon": "linkedin"
+      },
+      {
+        "label": "GitHub",
+        "url": "https://github.com/Arthurbric",
+        "icon": "github"
+      },
+      {
+        "label": "E-mail",
+        "url": "mailto:arthurarash.bric@gmail.com",
+        "icon": "mail"
+      }
+    ]
+  },
+  "ui": {
+    "nav": [
+      {
+        "id": "about",
+        "label": "Sobre"
+      },
+      {
+        "id": "experience",
+        "label": "Experiência"
+      },
+      {
+        "id": "skills",
+        "label": "Competências"
+      },
+      {
+        "id": "projects",
+        "label": "Projetos"
+      },
+      {
+        "id": "certifications",
+        "label": "Certificações"
+      },
+      {
+        "id": "contact",
+        "label": "Contato"
+      }
+    ],
+    "ctaPrimary": "Ver projetos",
+    "ctaSecondary": "Baixar currículo",
+    "showMore": "Mostrar outras experiências",
+    "showLess": "Ocultar outras experiências",
+    "otherExperienceNote": "Trabalhos anteriores à minha carreira em tecnologia, que moldaram a forma como eu me comunico e atendo pessoas.",
+    "viewOnGitHub": "Ver no GitHub",
+    "formalCertificate": "Certificado oficial",
+    "verify": "Verificar",
+    "download": "Baixar",
+    "themeLight": "Tema claro",
+    "themeDark": "Tema escuro",
+    "langSwitch": "Mudar para English",
+    "menu": "Menu",
+    "backToTop": "Voltar ao topo",
+    "scrollHint": "Role para explorar",
+    "present": "Presente",
+    "loading": "Carregando…",
+    "sections": {
+      "about": "Sobre",
+      "experience": "Experiência profissional",
+      "otherExperience": "Outras experiências",
+      "skills": "Competências técnicas",
+      "competencies": "Principais competências",
+      "languages": "Idiomas",
+      "projects": "Projetos",
+      "certifications": "Certificações",
+      "education": "Formação acadêmica",
+      "contact": "Contato"
+    },
+    "contactLead": "Aberto a novas oportunidades e conversas sobre Cloud, IA Generativa e pré-vendas técnicas.",
+    "footerNote": "Feito com HTML, CSS e JavaScript puro."
+  },
+  "competencies": [
+    "Arquitetura de Soluções",
+    "Pré-vendas Técnicas",
+    "Provas de Conceito (PoC)",
+    "Apresentações C-Level",
+    "Google Cloud Platform",
+    "IA Generativa",
+    "CRM (Salesforce)",
+    "Go-To-Market (GTM)",
+    "Gestão de Pipeline",
+    "Kubernetes",
+    "SUSE Linux Enterprise",
+    "Rancher",
+    "Docker"
+  ],
+  "stats": [
+    {
+      "value": "700+",
+      "label": "horas de tutoria individual"
+    },
+    {
+      "value": "90+",
+      "label": "alunos capacitados"
+    },
+    {
+      "value": "10+",
+      "label": "tecnologias avaliadas em pré-vendas"
+    },
+    {
+      "value": "70%",
+      "label": "menos tempo de coleta de dados na PGFN"
+    }
+  ],
+  "experience": {
+    "main": [
+      {
+        "role": "Entrepreneur in Residence",
+        "company": "Xertica.ai",
+        "period": "Ago 2026 — Presente",
+        "start": "2026-08",
+        "end": null,
+        "location": "Brasília – DF",
+        "mode": "Híbrido",
+        "summary": "Impulsiono o crescimento de negócios na interseção entre IA Generativa, soluções de Cloud (GCP) e estratégia comercial, nos setores público e privado.",
+        "highlights": [
+          "Arquiteto, valido e apresento PoCs e demos executivas de alto impacto para stakeholders C-Level, apoiando diretamente decisões de compra.",
+          "Gerencio o pipeline de vendas no Salesforce e construo propostas comerciais complexas alinhadas às necessidades de cada cliente.",
+          "Estruturo Account Plans apoiados por IA, identificando oportunidades de expansão em contas estratégicas.",
+          "Participo do desenho e da execução tática da estratégia de Go-To-Market das soluções de IA Generativa.",
+          "Desenvolvo projetos de IA voltados a impacto social direto na vida de brasileiros."
+        ],
+        "tags": [
+          "IA Generativa",
+          "GCP",
+          "Salesforce",
+          "GTM",
+          "PoC"
+        ]
+      },
+      {
+        "role": "Arquiteto de Soluções (Pré-vendas)",
+        "company": "Acorp do Brasil",
+        "period": "Jan 2026 — Ago 2026",
+        "start": "2026-01",
+        "end": "2026-08",
+        "location": "São Paulo – SP",
+        "mode": "Remoto",
+        "summary": "Papel híbrido com forte foco em Arquitetura de Soluções e atividades de pré-vendas.",
+        "highlights": [
+          "Desenhei soluções técnicas e acompanhei clientes ao longo dos processos de avaliação e decisão.",
+          "Construí e entreguei PoCs, demo labs e apresentações técnicas.",
+          "Criei e mantive ambientes e centros de demonstração usados por parceiros e clientes em validações técnicas.",
+          "Apoiei certificações e capacitação técnica, fortalecendo a competência do time de pré-vendas.",
+          "Atuei pontualmente como Engenheiro de Sistemas em análise técnica, troubleshooting e validação de soluções."
+        ],
+        "tags": [
+          "Pré-vendas",
+          "PoC",
+          "Demo Labs",
+          "Arquitetura"
+        ]
+      },
+      {
+        "role": "Arquiteto de Soluções (Pré-vendas)",
+        "company": "SUSE",
+        "period": "Jan 2024 — Jan 2026",
+        "start": "2024-01",
+        "end": "2026-01",
+        "location": "Brasil",
+        "mode": "Remoto",
+        "summary": "Colaborei com equipes multifuncionais para entender requisitos de negócio e desenhar soluções escaláveis com foco em tecnologias SUSE.",
+        "highlights": [
+          "Contribuí para a documentação de arquitetura em mais de 5 projetos, acelerando o onboarding de novos engenheiros e melhorando o alinhamento técnico do time.",
+          "Desenvolvi 3 provas de conceito para validar decisões arquiteturais, garantindo aderência aos padrões e boas práticas da SUSE.",
+          "Participei da avaliação de mais de 10 tecnologias e ferramentas, criando comparativos técnicos que apoiaram decisões de pré-vendas.",
+          "Apoiei a avaliação e a seleção de tecnologias adequadas para cada implementação.",
+          "Concluí certificações oficiais SUSE (SLES, Rancher Prime/Kubernetes e SUSE Manager)."
+        ],
+        "tags": [
+          "SUSE Linux",
+          "Rancher",
+          "Kubernetes",
+          "Arquitetura"
+        ]
+      },
+      {
+        "role": "Engenheiro de Dados",
+        "company": "PGFN — Procuradoria-Geral da Fazenda Nacional",
+        "period": "Jul 2023 — Jan 2024",
+        "start": "2023-07",
+        "end": "2024-01",
+        "location": "Brasília – DF",
+        "mode": "Presencial",
+        "summary": "Atuei com tecnologias de dados, automação e extração de informações para apoio a ambientes de Big Data e Data Lake.",
+        "highlights": [
+          "Automatizei pipelines de dados com Python e SQL, reduzindo o tempo de coleta e processamento em aproximadamente 70%.",
+          "Implementei rotinas autônomas de extração, poupando cerca de 15 horas semanais de trabalho manual.",
+          "Desenvolvi scripts de web scraping para extração e tratamento de grandes volumes de dados com Selenium, BeautifulSoup e Regex.",
+          "Processei dados com MySQL, Apache Hive e Spark."
+        ],
+        "tags": [
+          "Python",
+          "SQL",
+          "Spark",
+          "Web Scraping",
+          "Data Lake"
+        ]
+      },
+      {
+        "role": "Coordenador de Cursos e Monitoria",
+        "company": "UniCEUB — Centro Universitário de Brasília",
+        "period": "Jan 2022 — Jan 2026",
+        "start": "2022-01",
+        "end": "2026-01",
+        "location": "Brasília – DF",
+        "mode": "Híbrido",
+        "summary": "Trajetória progressiva, de monitor de laboratório a coordenador de cursos, apoiando estudantes em programação, Linux e desenvolvimento web.",
+        "highlights": [
+          "Capacitei mais de 90 alunos em cursos técnicos e workshops.",
+          "Realizei mais de 700 horas de tutoria individual em programação, lógica, Linux e desenvolvimento web.",
+          "Coordenei workshops e cursos rápidos de Linux Essentials, Python, HTML/CSS e C, e ministrei apresentações técnicas.",
+          "Liderei um workshop de Git focado em preparar estudantes para o mercado de tecnologia."
+        ],
+        "roles": [
+          {
+            "title": "Coordenador de Crash Courses",
+            "period": "Jun 2023 — Jan 2026"
+          },
+          {
+            "title": "Instrutor de Workshops",
+            "period": "Fev 2023 — Jun 2023"
+          },
+          {
+            "title": "Monitor e Tutor",
+            "period": "Jun 2022 — Fev 2023"
+          },
+          {
+            "title": "Monitor de Laboratório de Informática",
+            "period": "Jan 2022 — Jun 2022"
+          }
+        ],
+        "tags": [
+          "Ensino técnico",
+          "Linux",
+          "Python",
+          "Git"
+        ]
+      }
+    ],
+    "other": [
+      {
+        "role": "Anfitrião e Garçom de Restaurante de Jogos (Freelance)",
+        "company": "Café Ludique — Carcassonne Pub",
+        "period": "Mai 2022 — Jan 2025",
+        "location": "Brasília – DF",
+        "summary": "Recebia os clientes, gerenciava pedidos e apresentava uma biblioteca de 200 a 300 jogos de tabuleiro, adaptando a explicação para iniciantes e veteranos. Atendi visitantes internacionais em português e inglês e fui citado nominalmente em avaliações do Google pelo atendimento e pelo conhecimento dos jogos.",
+        "tags": [
+          "Atendimento",
+          "Comunicação",
+          "Bilíngue"
+        ]
+      },
+      {
+        "role": "Editor de Imagem Pleno",
+        "company": "Cine Photo JM",
+        "period": "Nov 2022 — Jun 2023",
+        "location": "Brasília – DF",
+        "summary": "Conduzi sessões de fotos, retoque e edição profissional de imagens em Adobe Photoshop, além de preparar layouts para impressão. Operei equipamentos de impressão, ajustei qualidade de imagem e atendi clientes em produtos fotográficos personalizados.",
+        "tags": [
+          "Photoshop",
+          "Design",
+          "Produção"
+        ]
+      },
+      {
+        "role": "Assistente de Sala Voluntário",
+        "company": "CEEDV — Centro de Ensino Especial de Deficientes Visuais",
+        "period": "Nov 2021 — Set 2022",
+        "location": "Brasília – DF",
+        "summary": "Apoiei crianças com baixa visão, cegueira total e múltiplas deficiências, junto aos professores, em atividades pedagógicas e no cuidado diário. Acompanhei os alunos no recreio e nas refeições, auxiliei na locomoção pela escola e incentivei autonomia e interação social.",
+        "tags": [
+          "Voluntariado",
+          "Acessibilidade",
+          "Empatia"
+        ]
+      },
+      {
+        "role": "Especialista em Tradução",
+        "company": "Embaixada (contrato)",
+        "period": "Mar 2021 — Jul 2021",
+        "location": "Brasília – DF",
+        "summary": "Traduzi documentos e atuei em traduções de conversas individuais quando necessário. Revisei, corrigi e organizei documentação para garantir clareza e precisão, e estruturei planilhas de Excel, melhorando organização e legibilidade dos dados.",
+        "tags": [
+          "Tradução",
+          "Documentação",
+          "Excel"
+        ]
+      },
+      {
+        "role": "Garçom Profissional Bilíngue",
+        "company": "leon1960",
+        "period": "Ago 2017 — Nov 2018",
+        "location": "Brasília – DF",
+        "summary": "Atendimento em restaurante de alta gastronomia para clientela diversificada, com treinamento em etiqueta de fine dining para garantir que cada detalhe atingisse o padrão da casa.",
+        "tags": [
+          "Fine dining",
+          "Atendimento",
+          "Bilíngue"
+        ]
+      }
+    ]
+  },
+  "skills": [
+    {
+      "group": "Cloud e IA",
+      "icon": "cloud",
+      "items": [
+        "Google Cloud Platform (GCP)",
+        "IA Generativa",
+        "Provas de Conceito",
+        "Ambientes de demonstração",
+        "Go-To-Market"
+      ]
+    },
+    {
+      "group": "Infraestrutura",
+      "icon": "server",
+      "items": [
+        "Linux",
+        "SUSE Linux Enterprise Server",
+        "SUSE Manager",
+        "Rancher Prime",
+        "Kubernetes",
+        "Docker",
+        "Git",
+        "Bash"
+      ]
+    },
+    {
+      "group": "Programação",
+      "icon": "code",
+      "items": [
+        "Python",
+        "JavaScript",
+        "TypeScript",
+        "C",
+        "Go",
+        "HTML",
+        "CSS",
+        "React",
+        "Bootstrap"
+      ]
+    },
+    {
+      "group": "Dados",
+      "icon": "database",
+      "items": [
+        "SQL",
+        "MySQL",
+        "Modelagem de dados",
+        "Web Scraping",
+        "Selenium",
+        "BeautifulSoup",
+        "Pandas"
+      ]
+    },
+    {
+      "group": "Comercial",
+      "icon": "briefcase",
+      "items": [
+        "Pré-vendas técnicas",
+        "CRM (Salesforce)",
+        "Propostas comerciais",
+        "Account Plans",
+        "Apresentações C-Level"
+      ]
+    }
+  ],
+  "languages": [
+    {
+      "name": "Persa / Farsi",
+      "level": "Fluente",
+      "value": 100
+    },
+    {
+      "name": "Inglês",
+      "level": "Fluente",
+      "value": 90
+    },
+    {
+      "name": "Português",
+      "level": "Avançado",
+      "value": 80
+    },
+    {
+      "name": "Alemão",
+      "level": "Intermediário",
+      "value": 65
+    },
+    {
+      "name": "Espanhol",
+      "level": "Básico",
+      "value": 15
+    }
+  ],
+  "education": [
+    {
+      "degree": "Pós-graduação em Computação em Nuvem",
+      "school": "CEUB — Centro Universitário de Brasília",
+      "period": "2025 — 2026"
+    },
+    {
+      "degree": "Bacharelado em Ciência da Computação",
+      "school": "CEUB — Centro Universitário de Brasília",
+      "period": "2022 — 2025"
+    }
+  ],
+  "certifications": [
+    {
+      "name": "Google Cloud Computing Foundations Certificate",
+      "issuer": "Google",
+      "year": "2026",
+      "image": null,
+      "credential": null,
+      "verify": null,
+      "download": null
+    },
+    {
+      "name": "AWS Academy Graduate — Cloud Foundations",
+      "issuer": "AWS",
+      "year": "2026",
+      "image": null,
+      "credential": null,
+      "verify": null,
+      "download": null
+    },
+    {
+      "name": "SUSE Certified Administrator — Rancher Prime / Kubernetes",
+      "issuer": "SUSE",
+      "year": "2025",
+      "image": null,
+      "credential": null,
+      "verify": "https://suse.useclarus.com/view/verify/",
+      "download": null
+    },
+    {
+      "name": "SUSE Certified Administrator — SUSE Manager / Uyuni",
+      "issuer": "SUSE",
+      "year": "2025",
+      "detail": "Certificação 2296 · Válida desde 27/04/2025",
+      "image": "/Certifications/PNG-Certification/SCA_SUMA.jpg",
+      "credential": "https://badges.suse.com/6a4d0e61-16a9-4b4a-82dd-5649a1297887#acc.nEpJ4svf",
+      "verify": "https://suse.useclarus.com/view/verify/",
+      "download": "/Certifications/En-Certifications/SCA_SUMA42296.pdf"
+    },
+    {
+      "name": "SUSE Certified Administrator — SUSE Linux Enterprise Server 15",
+      "issuer": "SUSE",
+      "year": "2024",
+      "detail": "Certificação 4776 · Válida desde 29/12/2024",
+      "image": "/Certifications/PNG-Certification/SCA_SLES15.jpg",
+      "credential": "https://badges.suse.com/07963b51-e782-44ff-8401-fdadf02c2b21#acc.JVoZiC7H",
+      "verify": "https://suse.useclarus.com/view/verify/",
+      "download": "/Certifications/En-Certifications/SCA_SLES154776.pdf"
+    },
+    {
+      "name": "Docker: criando e gerenciando containers",
+      "issuer": "Alura",
+      "year": "2024",
+      "detail": "12 horas",
+      "image": "/Certifications/PNG-Certification/Docker.jpg",
+      "credential": "https://cursos.alura.com.br/certificate/1fb39b4d-8ad7-4600-96f4-be36f30405ae?lang=en",
+      "verify": null,
+      "download": "/Certifications/PT_BR_Certificacao/Arthur Arash - Curso Docker_ criando e gerenciando containers - Alura.pdf"
+    },
+    {
+      "name": "Linux: gerenciando diretórios, arquivos, permissões e processos",
+      "issuer": "Alura",
+      "year": "2025",
+      "detail": "8 horas",
+      "image": "/Certifications/PNG-Certification/Linux.jpg",
+      "credential": "https://cursos.alura.com.br/certificate/0a783fd2-0377-4bc8-9cbf-aba6e8f875a7?lang=en",
+      "verify": null,
+      "download": "/Certifications/PT_BR_Certificacao/Arthur Arash - Curso Linux_ gerenciando diretórios, arquivos, permissões e processos - Alura.pdf"
+    },
+    {
+      "name": "Git e GitHub: compartilhando e colaborando em projetos",
+      "issuer": "Alura",
+      "year": "2025",
+      "detail": "8 horas",
+      "image": "/Certifications/PNG-Certification/Git_GitHub.jpg",
+      "credential": "https://cursos.alura.com.br/user/arthurarash-bric/course/linux-gerenciando-diretorios-arquivos-permissoes-processos/formalCertificate",
+      "verify": null,
+      "download": "/Certifications/PT_BR_Certificacao/Arthur Arash - Curso Git e GitHub_ compartilhando e colaborando em projetos - Alura.pdf"
+    }
+  ],
+  "otherCourses": "Python (Alura) · JavaScript (Faradars) · MySQL Administrator (CEUB/Alura) · Web Scraping (Faradars) · Linguagem C (Faradars)",
+  "projects": [
+    {
+      "name": "Lembrei!",
+      "description": "Aplicativo de lembretes para pessoas com TDAH, com notificações contextuais baseadas na localização do usuário. Ajuda a organizar tarefas do dia a dia e a manter a rotina em ordem.",
+      "url": "https://github.com/Arthurbric/lembrei/tree/main",
+      "tags": [
+        "Mobile",
+        "Notificações",
+        "Acessibilidade"
+      ]
+    },
+    {
+      "name": "Read Write 4 All",
+      "description": "Plataforma web inclusiva para alfabetização de pessoas com dificuldades de leitura e escrita. Formulários multimídia com áudio, vídeo, texto ajustável, ARIA e navegação por teclado.",
+      "url": "https://github.com/Arthurbric/ReadWrite4All-Pi1",
+      "tags": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "Acessibilidade"
+      ]
+    },
+    {
+      "name": "Museu OpenGL Interativo",
+      "description": "Museu 3D em C com OpenGL: o usuário percorre as exposições, interage com artefatos, rotaciona objetos e vê reflexos em tempo real. Modelagem matemática e transformações matriciais.",
+      "url": "https://github.com/Arthurbric/Interactive-OpenGL-Museum",
+      "tags": [
+        "C",
+        "OpenGL",
+        "Computação gráfica"
+      ]
+    },
+    {
+      "name": "Occurrence Report CEUB",
+      "description": "Plataforma web para alunos e funcionários registrarem ocorrências no campus, com categorização, alertas em tempo real e interface direta para resposta rápida da universidade.",
+      "url": "https://github.com/Arthurbric/Occurrence-Report-CEUB",
+      "tags": [
+        "Web",
+        "Full-stack"
+      ]
+    },
+    {
+      "name": "EasyRent QuickCar",
+      "description": "Plataforma full-stack de aluguel de carros com login seguro e reservas. Backend em Python com MySQL e frontend responsivo em HTML e CSS, com autenticação e gestão de reservas.",
+      "url": "https://github.com/Arthurbric/EasyRent_QuickCar",
+      "tags": [
+        "Python",
+        "MySQL",
+        "Full-stack"
+      ]
+    },
+    {
+      "name": "Site de Feedback",
+      "description": "Plataforma para estudantes universitários darem feedback construtivo e anônimo sobre professores, com moderação para garantir a qualidade das avaliações.",
+      "url": "https://github.com/Arthurbric/FeedBack_Site",
+      "tags": [
+        "Web",
+        "Moderação"
+      ]
+    },
+    {
+      "name": "2Gather",
+      "description": "Plataforma de eventos que conecta organizadores a locais e fornecedores de equipamentos: reserva de espaços, som, iluminação e decoração em um só lugar.",
+      "url": "https://github.com/Arthurbric/2Gather-Pi1",
+      "tags": [
+        "Web",
+        "Marketplace"
+      ]
+    },
+    {
+      "name": "CineMatch",
+      "description": "Plataforma social em que o usuário desliza para curtir ou descartar filmes. Sistema de matching conecta pessoas com gostos em comum e sugere recomendações personalizadas.",
+      "url": "https://github.com/arthurbric/CineMatch",
+      "tags": [
+        "Web",
+        "Recomendação"
+      ]
+    },
+    {
+      "name": "Compilador em C",
+      "description": "Implementação de um compilador em C, cobrindo as etapas de análise e geração de código.",
+      "url": "https://github.com/Arthurbric/Compiler_C",
+      "tags": [
+        "C",
+        "Compiladores"
+      ]
+    },
+    {
+      "name": "Convite Digital de Formatura",
+      "description": "Convite digital interativo com mapas integrados (Waze e Google Maps) e RSVP responsivo, permitindo confirmar presença com um clique.",
+      "url": "https://github.com/Arthurbric/Invitation-Card",
+      "tags": [
+        "Front-end",
+        "UX"
+      ]
+    },
+    {
+      "name": "Airbnb Front-End Remake",
+      "description": "Recriação da interface do Airbnb em HTML, CSS e JavaScript, com foco em design responsivo, elementos interativos e práticas modernas de layout.",
+      "url": "https://github.com/Arthurbric/Airbnb_Front-End_Remake",
+      "tags": [
+        "HTML",
+        "CSS",
+        "JavaScript"
+      ]
+    }
+  ]
+}

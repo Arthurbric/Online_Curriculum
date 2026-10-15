@@ -1581,7 +1581,7 @@ h4 {
 
     .track,
     .other {
-        padding-left: 22px;
+        padding-left: 20px;
     }
 
     .node::before {

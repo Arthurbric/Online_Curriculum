@@ -9,7 +9,13 @@
     var LS_LANG = 'aa-lang';
     var SVGNS = 'http://www.w3.org/2000/svg';
 
+    /* Experiência: quantos tópicos mostrar antes do botão "+ detalhes".
+       Use 0 para mostrar todos (comportamento da V1). */
+    var EXP_PREVIEW = 2;
+
     var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    /* quando a camada GSAP (motion.js) está ativa, ela assume as animações */
+    function motionOn() { return document.documentElement.classList.contains('gsap-on'); }
     var data = null;
     var rotatorTimer = null;
 
@@ -83,6 +89,7 @@
     function initReveal() {
         var sel = '.node, .mini, .panel, .stackcard, .repo, .cert, .edu__item, .shead, .courses, .other, .footer__panel';
         var targets = $$(sel);
+        if (motionOn()) return;
         if (reduceMotion || !('IntersectionObserver' in window)) {
             targets.forEach(function (t) { t.classList.add('is-visible'); });
             return;
@@ -104,7 +111,7 @@
         var node = slot('rotator');
         if (!node || !words || !words.length) return;
         if (rotatorTimer) clearTimeout(rotatorTimer);
-        if (reduceMotion) { node.textContent = words[0]; return; }
+        if (reduceMotion || motionOn()) { node.textContent = words[0]; return; }
         var w = 0, c = 0, back = false;
         (function tick() {
             var word = words[w];
@@ -264,8 +271,29 @@
 
             if (job.highlights) {
                 var ul = el('ul', 'node__points');
-                job.highlights.forEach(function (h) { ul.appendChild(el('li', null, h)); });
+                job.highlights.forEach(function (h, k) {
+                    var li = el('li', null, h);
+                    if (EXP_PREVIEW && k >= EXP_PREVIEW) { li.className = 'is-extra'; li.hidden = true; }
+                    ul.appendChild(li);
+                });
                 art.appendChild(ul);
+                var extra = EXP_PREVIEW ? job.highlights.length - EXP_PREVIEW : 0;
+                if (extra > 0) {
+                    var pt = d.meta.htmlLang.indexOf('pt') === 0;
+                    var more = el('button', 'node__more', (pt ? '+ ' + extra + ' detalhes' : '+ ' + extra + ' more'));
+                    more.type = 'button';
+                    more.setAttribute('aria-expanded', 'false');
+                    more.addEventListener('click', (function (list, btn, n) {
+                        return function () {
+                            var open = btn.getAttribute('aria-expanded') === 'true';
+                            $$('.is-extra', list).forEach(function (x) { x.hidden = open; });
+                            btn.setAttribute('aria-expanded', String(!open));
+                            btn.textContent = open ? (pt ? '+ ' + n + ' detalhes' : '+ ' + n + ' more') : (pt ? 'ver menos' : 'show less');
+                            if (window.ScrollTrigger) window.ScrollTrigger.refresh();
+                        };
+                    })(ul, more, extra));
+                    art.appendChild(more);
+                }
             }
             if (job.roles) {
                 var rl = el('ul', 'node__roles');
@@ -427,7 +455,22 @@
         startRotator(p.rotatingWords);
         initReveal();
         initScrollSpy();
+
+        /* avisa a camada de animação (motion.js) que o conteúdo foi desenhado */
+        renderCount++;
+        document.dispatchEvent(new CustomEvent('aa:render', { detail: { data: d, first: renderCount === 1 } }));
     }
+
+    var renderCount = 0;
+
+    /* usado pelo plano B do <head> se o GSAP não carregar */
+    window.AA = {
+        revealAll: function () {
+            $$('.node, .mini, .panel, .stackcard, .repo, .cert, .edu__item, .shead, .courses, .other, .footer__panel')
+                .forEach(function (t) { t.classList.add('is-visible'); });
+            if (data) startRotator(data.profile.rotatingWords);
+        }
+    };
 
     function mkLink(href, label, download) {
         var a = el('a', null, label);
@@ -482,7 +525,23 @@
     /* ---------- eventos ---------- */
     function bind() {
         $('#themeBtn').addEventListener('click', function () {
-            applyTheme(currentTheme() === 'dark' ? 'light' : 'dark', true);
+            var next = currentTheme() === 'dark' ? 'light' : 'dark';
+            var root = document.documentElement;
+            if (!document.startViewTransition || reduceMotion || !motionOn()) {
+                applyTheme(next, true);
+                return;
+            }
+            /* troca de tema em círculo, a partir do botão */
+            var r = this.getBoundingClientRect();
+            var x = r.left + r.width / 2, y = r.top + r.height / 2;
+            var end = Math.hypot(Math.max(x, innerWidth - x), Math.max(y, innerHeight - y));
+            var vt = document.startViewTransition(function () { applyTheme(next, true); });
+            vt.ready.then(function () {
+                root.animate(
+                    { clipPath: ['circle(0px at ' + x + 'px ' + y + 'px)', 'circle(' + end + 'px at ' + x + 'px ' + y + 'px)'] },
+                    { duration: 700, easing: 'cubic-bezier(.65,0,.35,1)', pseudoElement: '::view-transition-new(root)' }
+                );
+            });
         });
 
         $('#langBtn').addEventListener('click', function () {

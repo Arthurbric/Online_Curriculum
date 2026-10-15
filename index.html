@@ -11,6 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="motion.css">
     <script>
         (function () {
             try {
@@ -18,6 +19,24 @@
                 if (!t) t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
                 document.documentElement.setAttribute('data-theme', t);
             } catch (e) { }
+        })();
+
+        /* Camada de animação GSAP: liga antes da primeira pintura, exceto
+           para quem pediu menos movimento. Plano B: se em 9 s nada tiver
+           animado (GSAP não carregou, rede lenta), volta ao site estático. */
+        (function () {
+            var h = document.documentElement;
+            try {
+                if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+            } catch (e) { return; }
+            h.classList.add('gsap-on');
+            setTimeout(function () {
+                if (h.classList.contains('motion-ready')) return;
+                h.classList.remove('gsap-on');
+                var boot = document.querySelector('.boot');
+                if (boot) boot.remove();
+                if (window.AA) window.AA.revealAll();
+            }, 9000);
         })();
     </script>
 </head>
@@ -196,7 +215,16 @@
         </div>
     </footer>
 
+    <!-- GSAP 3.15 (licença gratuita "Standard no charge", gsap.com/standard-license) -->
+    <script src="vendor/gsap/gsap.min.js"></script>
+    <script src="vendor/gsap/ScrollTrigger.min.js"></script>
+    <script src="vendor/gsap/ScrollSmoother.min.js"></script>
+    <script src="vendor/gsap/SplitText.min.js"></script>
+    <script src="vendor/gsap/ScrambleTextPlugin.min.js"></script>
+    <script src="motion.js"></script>
     <script src="app.js"></script>
+    <!-- OPCIONAL: globo 3D no topo. Para tirar, apague a linha abaixo. -->
+    <script src="fx3d.js"></script>
 </body>
 
 </html>

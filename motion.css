@@ -1,0 +1,297 @@
+/* =========================================================
+   Camada de animação (GSAP)
+   Só vale quando <html> tem a classe .gsap-on (ligada no <head>).
+   Sem ela — movimento reduzido ou GSAP fora do ar — o site
+   continua exatamente como antes.
+   ========================================================= */
+
+/* ---------- o GSAP assume o que antes era CSS ---------- */
+.gsap-on .hero__panel,
+.gsap-on .ticker__track {
+    animation: none;
+}
+
+.gsap-on .node,
+.gsap-on .mini,
+.gsap-on .panel,
+.gsap-on .stackcard,
+.gsap-on .repo,
+.gsap-on .cert,
+.gsap-on .edu__item,
+.gsap-on .shead,
+.gsap-on .courses,
+.gsap-on .other,
+.gsap-on .footer__panel {
+    opacity: 1;
+    transform: none;
+}
+
+.gsap-on .radar .shape {
+    transform: none;
+    transition: none;
+}
+
+/* esconde o topo até a animação de entrada começar (sem "piscar") */
+.gsap-on:not(.motion-ready) .hero__panel,
+.gsap-on:not(.motion-ready) .ticker,
+.gsap-on:not(.motion-ready) .rail {
+    visibility: hidden;
+}
+
+/* com rolagem suave do GSAP, o CSS não deve suavizar de novo */
+.has-smoother {
+    scroll-behavior: auto;
+}
+
+#smooth-wrapper {
+    z-index: 1;
+}
+
+/* ---------- abertura em terminal ---------- */
+.boot {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: grid;
+    place-items: center;
+    padding: var(--gut);
+    background:
+        radial-gradient(60% 50% at 50% 40%, color-mix(in srgb, var(--cyan) 10%, transparent), transparent 70%),
+        var(--bg);
+    color: var(--fg-2);
+    font-family: var(--mono);
+    cursor: pointer;
+}
+
+.boot__term {
+    width: min(560px, 100%);
+    font-size: clamp(12.5px, 3.4vw, 15px);
+    line-height: 1.85;
+}
+
+.boot__line {
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.boot__user {
+    color: var(--lime);
+}
+
+.boot__sign {
+    color: var(--cyan);
+}
+
+.boot__ok {
+    color: var(--cyan);
+}
+
+.boot__line--hi {
+    color: var(--fg);
+    font-weight: 700;
+}
+
+.boot__bar {
+    margin-top: 18px;
+    height: 3px;
+    border-radius: 3px;
+    background: var(--stroke);
+    overflow: hidden;
+}
+
+.boot__bar i {
+    display: block;
+    height: 100%;
+    background: linear-gradient(90deg, var(--cyan), var(--blue));
+    transform: scaleX(0);
+    transform-origin: left;
+    box-shadow: 0 0 14px var(--cyan);
+}
+
+.boot__meta {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px;
+    font-size: 11.5px;
+    color: var(--fg-3);
+    letter-spacing: .06em;
+}
+
+/* ---------- barra de progresso da leitura ---------- */
+.scrollbar {
+    position: fixed;
+    inset: 0 0 auto 0;
+    height: 2px;
+    z-index: 150;
+    pointer-events: none;
+    background: linear-gradient(90deg, var(--cyan), var(--blue), var(--lime));
+    transform: scaleX(0);
+    transform-origin: left;
+    box-shadow: 0 0 10px color-mix(in srgb, var(--cyan) 70%, transparent);
+}
+
+/* ---------- luz que segue o cursor (só desktop) ---------- */
+.cursor-glow {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 560px;
+    height: 560px;
+    margin: -280px 0 0 -280px;
+    border-radius: 50%;
+    z-index: 0;
+    pointer-events: none;
+    background: radial-gradient(circle, color-mix(in srgb, var(--cyan) 15%, transparent), transparent 62%);
+    opacity: 0;
+}
+
+[data-theme="light"] .cursor-glow {
+    background: radial-gradient(circle, color-mix(in srgb, var(--cyan) 11%, transparent), transparent 62%);
+}
+
+/* ---------- linha do tempo que acende ao rolar ---------- */
+.track__fill {
+    position: absolute;
+    left: 6px;
+    top: 10px;
+    bottom: 10px;
+    width: 3px;
+    border-radius: 3px;
+    background: linear-gradient(180deg, var(--cyan), var(--blue));
+    box-shadow: 0 0 12px color-mix(in srgb, var(--cyan) 65%, transparent);
+    transform: scaleY(0);
+    transform-origin: top;
+    pointer-events: none;
+}
+
+.node::before {
+    transition: background .35s, box-shadow .35s, transform .35s;
+}
+
+.node.is-lit::before {
+    background: var(--cyan);
+    transform: scale(1.25);
+    box-shadow: 0 0 0 5px color-mix(in srgb, var(--cyan) 22%, transparent),
+        0 0 18px color-mix(in srgb, var(--cyan) 80%, transparent);
+}
+
+/* ---------- avatar em 3D ---------- */
+.gsap-on .avatar {
+    transform-style: preserve-3d;
+    will-change: transform;
+}
+
+/* ---------- troca de tema em círculo (View Transitions) ---------- */
+::view-transition-old(root),
+::view-transition-new(root) {
+    animation: none;
+    mix-blend-mode: normal;
+}
+
+/* ---------- convite para entrar (libera o som) ---------- */
+.boot__enter {
+    margin: 26px 0 0;
+    text-align: center;
+    color: var(--cyan);
+    letter-spacing: .08em;
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* ---------- botão de som ---------- */
+.soundbtn svg {
+    width: 17px;
+    height: 17px;
+    display: block;
+}
+
+.soundbtn[aria-pressed="true"] .snd-off,
+.soundbtn[aria-pressed="false"] .snd-on {
+    display: none;
+}
+
+.soundbtn[aria-pressed="true"] {
+    color: var(--cyan);
+}
+
+/* ---------- carrossel horizontal (Projetos, Certificações) ---------- */
+.is-hscroll {
+    overflow-x: clip;
+}
+
+.is-hscroll .hs__viewport {
+    /* a fileira vai de ponta a ponta da tela, alinhada ao conteúdo */
+    margin-inline: calc(50% - 50vw);
+    padding-inline: calc(50vw - 50%);
+    padding-block: 10px 14px;
+    overflow: hidden;
+}
+
+.is-hscroll .repos,
+.is-hscroll .certs {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 16px;
+    width: max-content;
+    will-change: transform;
+}
+
+.is-hscroll .repo,
+.is-hscroll .cert {
+    flex: none;
+    width: var(--hs-card, 340px);
+}
+
+.is-hscroll .repo {
+    min-height: 200px;
+}
+
+.hs__meta {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-top: 14px;
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: .06em;
+    color: var(--fg-3);
+}
+
+.hs__count {
+    color: var(--cyan);
+    min-width: 62px;
+}
+
+.hs__bar {
+    flex: 1;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--stroke);
+    overflow: hidden;
+}
+
+.hs__bar i {
+    display: block;
+    height: 100%;
+    background: linear-gradient(90deg, var(--cyan), var(--blue));
+    transform: scaleX(0);
+    transform-origin: left;
+}
+
+/* ---------- celular ---------- */
+@media (max-width: 760px) {
+    .track__fill {
+        left: 6px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .boot,
+    .scrollbar,
+    .cursor-glow,
+    .track__fill {
+        display: none !important;
+    }
+}

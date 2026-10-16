@@ -92,6 +92,8 @@
     "scrollHint": "Role para explorar",
     "present": "Presente",
     "loading": "Carregando…",
+    "skipToContent": "Pular para o conteúdo",
+    "imageSoon": "Imagem em breve",
     "sections": {
       "about": "Sobre",
       "experience": "Experiência profissional",
@@ -105,7 +107,7 @@
       "contact": "Contato"
     },
     "contactLead": "Aberto a novas oportunidades e conversas sobre Cloud, IA Generativa e pré-vendas técnicas.",
-    "footerNote": "Feito com HTML, CSS e JavaScript puro."
+    "footerNote": "Feito com amor, HTML, CSS e um pouco mais :)"
   },
   "competencies": [
     "Arquitetura de Soluções",

@@ -92,6 +92,8 @@
     "scrollHint": "Scroll to explore",
     "present": "Present",
     "loading": "Loading…",
+    "skipToContent": "Skip to content",
+    "imageSoon": "Image coming soon",
     "sections": {
       "about": "About",
       "experience": "Professional experience",
@@ -105,7 +107,7 @@
       "contact": "Contact"
     },
     "contactLead": "Open to new opportunities and to conversations about Cloud, Generative AI and technical pre-sales.",
-    "footerNote": "Built with plain HTML, CSS and JavaScript."
+    "footerNote": "Built with love, HTML, CSS, and a little more :)"
   },
   "competencies": [
     "Solution Architecture",
